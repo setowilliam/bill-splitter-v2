@@ -8,7 +8,6 @@ const Home: NextPage = () => {
 
   return (
     <>
-      Home page
       <button onClick={() => router.push("/results")}>Go to results</button>
       <Input />
       <Input />

@@ -1,11 +1,10 @@
-import { FC, FocusEventHandler, HTMLAttributes, useRef, useState } from "react";
-import { StyledInput } from "./styles";
+import { FC, FocusEventHandler, HTMLAttributes, useRef } from "react";
+import { InputContainer, StyledInput } from "./styles";
 
 type InputProps = HTMLAttributes<HTMLInputElement>;
 
 const Input: FC<InputProps> = (props) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [focused, setFocused] = useState(false);
 
   const handleBlur: FocusEventHandler<HTMLInputElement> = (event) => {
     props.onBlur?.(event);
@@ -17,19 +16,21 @@ const Input: FC<InputProps> = (props) => {
       current.style.opacity = "0";
       setTimeout(() => {
         current.style.opacity = "1";
-      }, 50);
+      }, 200);
     }
 
     props.onFocus?.(event);
   };
 
   return (
-    <StyledInput
-      ref={inputRef}
-      {...props}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-    />
+    <InputContainer>
+      <StyledInput
+        ref={inputRef}
+        {...props}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+      />
+    </InputContainer>
   );
 };
 

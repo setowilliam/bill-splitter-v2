@@ -6,7 +6,6 @@ const Results: NextPage = () => {
 
   return (
     <>
-      Results Page
       <button onClick={() => router.push("/")}>Go home</button>
     </>
   );
