@@ -14,13 +14,13 @@ const scrollFix = () => {
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
-  useEffect(() => {
-    window.addEventListener("scroll", scrollFix);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", scrollFix);
 
-    return () => {
-      window.removeEventListener("scroll", scrollFix);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", scrollFix);
+  //   };
+  // }, []);
 
   return (
     <PageLayout>
