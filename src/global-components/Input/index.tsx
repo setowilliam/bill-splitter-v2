@@ -12,6 +12,14 @@ const Input: FC<InputProps> = (props) => {
   };
 
   const handleFocus: FocusEventHandler<HTMLInputElement> = (event) => {
+    const { current } = inputRef;
+    if (current) {
+      current.style.opacity = "0";
+      setTimeout(() => {
+        current.style.opacity = "1";
+      }, 50);
+    }
+
     props.onFocus?.(event);
   };
 
