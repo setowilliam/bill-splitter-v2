@@ -13,4 +13,12 @@ export const Title = styled.div`
   display: flex;
   gap: 0.25rem;
   align-items: center;
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .icon {
+    font-size: 2rem;
+  }
 `;

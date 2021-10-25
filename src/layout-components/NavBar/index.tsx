@@ -12,7 +12,7 @@ const NavBar: FC<NavBarProps> = (props) => {
   return (
     <NavBarContainer>
       <Title>
-        <RiBillFill />
+        <RiBillFill className="icon" />
         <h1>Bill Splitter</h1>
       </Title>
       <FaBars />
