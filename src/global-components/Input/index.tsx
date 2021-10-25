@@ -6,14 +6,21 @@ import {
   useEffect,
   useState,
 } from "react";
-import { InputContainer, LeadingIconContainer, StyledInput } from "./styles";
+import {
+  InputContainer,
+  LabelContainer,
+  LeadingIconContainer,
+  ParentContainer,
+  StyledInput,
+} from "./styles";
 
 type InputProps = Omit<HTMLProps<HTMLInputElement>, "ref" | "as"> & {
   leadingIcon?: ReactNode;
+  label?: ReactNode;
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const { leadingIcon, ...rest } = props;
+  const { leadingIcon, label, ...rest } = props;
 
   const [transparent, setTransparent] = useState(false);
 
@@ -33,18 +40,21 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   };
 
   return (
-    <InputContainer>
-      {leadingIcon && (
-        <LeadingIconContainer>{leadingIcon}</LeadingIconContainer>
-      )}
-      <StyledInput
-        $transparent={transparent}
-        ref={ref}
-        {...rest}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-      />
-    </InputContainer>
+    <ParentContainer>
+      {label && <LabelContainer>{label}</LabelContainer>}
+      <InputContainer>
+        {leadingIcon && (
+          <LeadingIconContainer>{leadingIcon}</LeadingIconContainer>
+        )}
+        <StyledInput
+          $transparent={transparent}
+          ref={ref}
+          {...rest}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+        />
+      </InputContainer>
+    </ParentContainer>
   );
 });
 

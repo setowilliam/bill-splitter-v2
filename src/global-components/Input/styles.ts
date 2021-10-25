@@ -10,7 +10,7 @@ export const StyledInput = styled.input<{ $transparent: boolean }>`
 export const InputContainer = styled(motion.div)`
   background: white;
   border-radius: 0.5rem;
-  border: 1px solid black;
+  border: 1px solid #9f9f9f;
   width: fit-content;
   display: flex;
   align-items: center;
@@ -22,4 +22,14 @@ export const LeadingIconContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const ParentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+`;
+
+export const LabelContainer = styled.label`
+  font-size: 0.75rem;
 `;
