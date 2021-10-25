@@ -11,3 +11,13 @@ export const StyledForm = styled(motion.form)`
     font-size: 1rem;
   }
 `;
+
+export const HeaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  .icon {
+    font-size: 1rem;
+  }
+`;

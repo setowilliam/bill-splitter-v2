@@ -5,10 +5,11 @@ import { nanoid } from "nanoid";
 import { IoPersonCircleSharp } from "react-icons/io5";
 
 import { peopleAtom } from "@atoms";
-import { Button, Input } from "@global-components";
+import { Button, Card, Input } from "@global-components";
 
 import { globalScope } from "utils/constants";
 import { StyledForm } from "./styles";
+import Header from "./Header";
 
 type AddPersonFormProps = {
   onSubmit?: () => void;
@@ -32,21 +33,22 @@ const AddPersonForm: FC<AddPersonFormProps> = (props) => {
   };
 
   return (
-    <StyledForm
-      layout
-      onSubmit={handleSubmit(onSubmit)}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <h2>Add New People</h2>
-      <Input
-        {...register("person")}
-        label="Name"
-        leadingIcon={<IoPersonCircleSharp />}
-      />
-      <Button disabled={!Boolean(name)}>Add</Button>
-    </StyledForm>
+    <Card header={<Header />} borderless>
+      <StyledForm
+        layout
+        onSubmit={handleSubmit(onSubmit)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <Input
+          {...register("person")}
+          label="Name"
+          leadingIcon={<IoPersonCircleSharp />}
+        />
+        <Button disabled={!Boolean(name)}>Add</Button>
+      </StyledForm>
+    </Card>
   );
 };
 

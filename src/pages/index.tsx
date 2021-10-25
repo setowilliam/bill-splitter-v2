@@ -5,7 +5,7 @@ import { Button, CardContainer } from "@global-components";
 import { useAtom } from "jotai";
 import { itemsAtom, peopleAtom } from "@atoms";
 import { globalScope } from "utils/constants";
-import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import {
   AddItemForm,
   AddPersonForm,
@@ -31,6 +31,8 @@ const Home: NextPage = () => {
       </AnimatePresence>
       <AddPersonForm />
 
+      {/* <motion.hr layout /> */}
+
       <AnimatePresence>
         {Boolean(items.length) && (
           <CardContainer key="items" header="Items">
@@ -41,6 +43,9 @@ const Home: NextPage = () => {
         )}
       </AnimatePresence>
       <AddItemForm />
+
+      <motion.hr layout />
+
       <Button layout onClick={() => router.push("/results")}>
         Calculate
       </Button>

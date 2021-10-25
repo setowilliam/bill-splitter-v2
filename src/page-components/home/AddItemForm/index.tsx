@@ -4,12 +4,13 @@ import { useForm } from "react-hook-form";
 import { nanoid } from "nanoid";
 import { MdFastfood } from "react-icons/md";
 
-import { Button, Input } from "@global-components";
+import { Button, Card, Input } from "@global-components";
 import { itemsAtom } from "@atoms";
 
 import { globalScope } from "utils/constants";
 import { ItemType } from "utils/typings";
 import { StyledForm } from "./styles";
+import Header from "./Header";
 
 type AddItemFormProps = {
   onSubmit?: () => void;
@@ -32,25 +33,30 @@ const AddItemForm: FC<AddItemFormProps> = (props) => {
   };
 
   return (
-    <StyledForm
-      layout
-      onSubmit={handleSubmit(onSubmit)}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <h2>Add New Items</h2>
-      <Input {...register("item")} label="Item" leadingIcon={<MdFastfood />} />
-      <Input
-        {...register("price", { valueAsNumber: true })}
-        label="Price"
-        leadingIcon="$"
-        type="number"
-        step=".01"
-        inputMode="decimal"
-      />
-      <Button disabled={!Boolean(item && price)}>Add</Button>
-    </StyledForm>
+    <Card header={<Header />} borderless>
+      <StyledForm
+        layout
+        onSubmit={handleSubmit(onSubmit)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <Input
+          {...register("item")}
+          label="Item"
+          leadingIcon={<MdFastfood />}
+        />
+        <Input
+          {...register("price", { valueAsNumber: true })}
+          label="Price"
+          leadingIcon="$"
+          type="number"
+          step=".01"
+          inputMode="decimal"
+        />
+        <Button disabled={!Boolean(item && price)}>Add</Button>
+      </StyledForm>
+    </Card>
   );
 };
 
