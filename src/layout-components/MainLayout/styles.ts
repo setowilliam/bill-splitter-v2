@@ -5,4 +5,7 @@ export const MainLayoutContainer = styled(motion.main)`
   padding: 1rem;
   grid-area: main;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;

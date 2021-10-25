@@ -1,20 +1,50 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
-import { AiFillDollarCircle } from "react-icons/ai";
-import { BsPersonCircle } from "react-icons/bs";
 
-import { Button, Card, Input } from "@global-components";
+import { Button, CardContainer } from "@global-components";
+import { useAtom } from "jotai";
+import { itemsAtom, peopleAtom } from "@atoms";
+import { globalScope } from "utils/constants";
+import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import {
+  AddItemForm,
+  AddPersonForm,
+  ItemCard,
+  PersonCard,
+} from "page-components/home";
 
 const Home: NextPage = () => {
   const router = useRouter();
+  const [items] = useAtom(itemsAtom, globalScope);
+  const [people] = useAtom(peopleAtom, globalScope);
 
   return (
-    <>
-      <Button onClick={() => router.push("/results")}>Go to results</Button>
-      <Input leadingIcon={<AiFillDollarCircle />} label="Price" />
-      <Input leadingIcon={<BsPersonCircle />} label="Name" />
-      <Card header="This is a card">Some card content</Card>
-    </>
+    <AnimateSharedLayout>
+      <AnimatePresence>
+        {Boolean(people.length) && (
+          <CardContainer key="people" header="People">
+            {people.map((person, index) => (
+              <PersonCard key={person.personId} person={person} index={index} />
+            ))}
+          </CardContainer>
+        )}
+      </AnimatePresence>
+      <AddPersonForm />
+
+      <AnimatePresence>
+        {Boolean(items.length) && (
+          <CardContainer key="items" header="Items">
+            {items.map((item, index) => (
+              <ItemCard key={item.itemId} item={item} index={index} />
+            ))}
+          </CardContainer>
+        )}
+      </AnimatePresence>
+      <AddItemForm />
+      <Button layout onClick={() => router.push("/results")}>
+        Calculate
+      </Button>
+    </AnimateSharedLayout>
   );
 };
 
