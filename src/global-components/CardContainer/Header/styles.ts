@@ -1,11 +1,9 @@
-
 import styled from "styled-components";
 
-import { Button } from "@global-components";
-
-export const HeaderContainer = styled(Button)`
+export const HeaderContainer = styled.div`
+  display: flex;
   justify-content: space-between;
-  padding: 0;
+  width: 100%;
 
   h2 {
     font-size: 1rem;

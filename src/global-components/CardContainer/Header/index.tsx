@@ -11,10 +11,10 @@ type HeaderProps = {};
 
 const Header: FC<HeaderProps> = (props) => {
   const { children } = props;
-  const [open, setOpen] = useAtom(toggleAtom);
+  const [open] = useAtom(toggleAtom);
 
   return (
-    <HeaderContainer layout onClick={() => setOpen(!open)} variant="borderless">
+    <HeaderContainer>
       <h2>{children}</h2>
       <motion.div animate={{ rotate: open ? 180 : 0 }}>
         <FiChevronUp className="icon" />
