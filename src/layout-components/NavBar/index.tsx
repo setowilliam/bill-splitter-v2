@@ -1,6 +1,5 @@
 import { FC } from "react";
-import { FaBars } from "react-icons/fa";
-import { RiBillFill } from "react-icons/ri";
+import { FaBars, FaReceipt } from "react-icons/fa";
 
 import { NavBarContainer, Title } from "./styles";
 
@@ -12,10 +11,10 @@ const NavBar: FC<NavBarProps> = (props) => {
   return (
     <NavBarContainer>
       <Title>
-        <RiBillFill className="icon" />
+        <FaReceipt className="receipt-icon" />
         <h1>Bill Splitter</h1>
       </Title>
-      <FaBars />
+      <FaBars className="menu-icon" />
     </NavBarContainer>
   );
 };

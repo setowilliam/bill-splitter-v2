@@ -7,6 +7,10 @@ export const NavBarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .menu-icon {
+    font-size: 1.5rem;
+  }
 `;
 
 export const Title = styled.div`
@@ -15,10 +19,10 @@ export const Title = styled.div`
   align-items: center;
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
-  .icon {
-    font-size: 2rem;
+  .receipt-icon {
+    font-size: 1.2rem;
   }
 `;
