@@ -1,37 +1,45 @@
-import { FC, FocusEventHandler, HTMLAttributes, useRef } from "react";
+import {
+  FocusEventHandler,
+  forwardRef,
+  HTMLProps,
+  useEffect,
+  useState,
+} from "react";
 import { InputContainer, StyledInput } from "./styles";
 
-type InputProps = HTMLAttributes<HTMLInputElement>;
+type InputProps = Omit<HTMLProps<HTMLInputElement>, "ref" | "as">;
 
-const Input: FC<InputProps> = (props) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+  const [transparent, setTransparent] = useState(false);
+
+  useEffect(() => {
+    if (transparent) {
+      setTimeout(() => setTransparent(false), 200);
+    }
+  }, [transparent]);
 
   const handleBlur: FocusEventHandler<HTMLInputElement> = (event) => {
     props.onBlur?.(event);
   };
 
   const handleFocus: FocusEventHandler<HTMLInputElement> = (event) => {
-    const { current } = inputRef;
-    if (current) {
-      current.style.opacity = "0";
-      setTimeout(() => {
-        current.style.opacity = "1";
-      }, 200);
-    }
-
+    setTransparent(true);
     props.onFocus?.(event);
   };
 
   return (
     <InputContainer>
       <StyledInput
-        ref={inputRef}
+        $transparent={transparent}
+        ref={ref}
         {...props}
         onFocus={handleFocus}
         onBlur={handleBlur}
       />
     </InputContainer>
   );
-};
+});
+
+Input.displayName = "Input";
 
 export default Input;
