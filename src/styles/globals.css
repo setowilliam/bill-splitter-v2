@@ -22,4 +22,5 @@ a {
   box-sizing: border-box;
   margin: 0;
   -webkit-tap-highlight-color: transparent;
+  color: black;
 }
