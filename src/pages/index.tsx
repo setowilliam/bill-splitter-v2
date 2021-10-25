@@ -11,29 +11,6 @@ const Home: NextPage = () => {
       <button onClick={() => router.push("/results")}>Go to results</button>
       <Input />
       <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
     </>
   );
 };
