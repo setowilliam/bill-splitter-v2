@@ -1,12 +1,14 @@
 import { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
 
+import { Button } from "@global-components";
+
 const Results: NextPage = () => {
   const router = useRouter();
 
   return (
     <>
-      <button onClick={() => router.push("/")}>Go home</button>
+      <Button onClick={() => router.push("/")}>Go home</Button>
     </>
   );
 };

@@ -3,14 +3,14 @@ import { useRouter } from "next/dist/client/router";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { BsPersonCircle } from "react-icons/bs";
 
-import { Input } from "@global-components";
+import { Button, Input } from "@global-components";
 
 const Home: NextPage = () => {
   const router = useRouter();
 
   return (
     <>
-      <button onClick={() => router.push("/results")}>Go to results</button>
+      <Button onClick={() => router.push("/results")}>Go to results</Button>
       <Input leadingIcon={<AiFillDollarCircle />} label="Price" />
       <Input leadingIcon={<BsPersonCircle />} label="Name" />
     </>
