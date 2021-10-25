@@ -2,14 +2,19 @@ import {
   FocusEventHandler,
   forwardRef,
   HTMLProps,
+  ReactNode,
   useEffect,
   useState,
 } from "react";
-import { InputContainer, StyledInput } from "./styles";
+import { InputContainer, LeadingIconContainer, StyledInput } from "./styles";
 
-type InputProps = Omit<HTMLProps<HTMLInputElement>, "ref" | "as">;
+type InputProps = Omit<HTMLProps<HTMLInputElement>, "ref" | "as"> & {
+  leadingIcon?: ReactNode;
+};
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+  const { leadingIcon, ...rest } = props;
+
   const [transparent, setTransparent] = useState(false);
 
   useEffect(() => {
@@ -29,10 +34,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 
   return (
     <InputContainer>
+      {leadingIcon && (
+        <LeadingIconContainer>{leadingIcon}</LeadingIconContainer>
+      )}
       <StyledInput
         $transparent={transparent}
         ref={ref}
-        {...props}
+        {...rest}
         onFocus={handleFocus}
         onBlur={handleBlur}
       />
