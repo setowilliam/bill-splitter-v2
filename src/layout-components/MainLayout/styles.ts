@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const MainLayoutContainer = styled(motion.main)`
   padding: 1rem;
-  background-color: yellow;
   grid-area: main;
   overflow-y: scroll;
 `;

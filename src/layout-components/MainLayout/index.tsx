@@ -13,7 +13,6 @@ const MainLayout: FC<MainLayoutProps> = (props) => {
   return (
     <MainLayoutContainer
       variants={mainVariants}
-      transition={{ bounce: 0 }}
       animate="neutral"
       initial={router.pathname === "/" ? "left" : "right"}
       exit={router.pathname === "/" ? "right" : "left"}
