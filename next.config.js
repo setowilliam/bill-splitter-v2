@@ -4,4 +4,5 @@ module.exports = {
   experimental: {
     esmExternals: false,
   },
+  swcMinify: true,
 };
