@@ -8,8 +8,8 @@ import { Button } from "@global-components";
 import { globalScope } from "utils/constants";
 
 import { getPerson } from "utils/functions";
-import AssignForm from "../AssignForm";
 import { AnimatePresence } from "framer-motion";
+import AssignPeopleForm from "../AssignPeopleForm";
 
 type BodyProps = { itemId: string; index: number };
 
@@ -46,7 +46,7 @@ const Body: FC<BodyProps> = (props) => {
   return (
     <>
       <AnimatePresence>
-        <AssignForm itemId={itemId} />
+        <AssignPeopleForm itemId={itemId} />
       </AnimatePresence>
       <Button layout variant="borderless">
         <RiEditFill />

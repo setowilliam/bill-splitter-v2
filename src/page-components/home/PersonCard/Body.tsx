@@ -5,6 +5,7 @@ import { FC } from "react";
 import { RiDeleteBin4Fill } from "react-icons/ri";
 import { globalScope } from "utils/constants";
 import { getItem } from "utils/functions";
+import AssignItemsForm from "../AssignItemsForm";
 
 type BodyProps = { index: number; personId: string };
 
@@ -40,6 +41,7 @@ const Body: FC<BodyProps> = (props) => {
 
   return (
     <>
+      <AssignItemsForm personId={personId} />
       <Button layout variant="borderless" onClick={handleDeleteClick}>
         <RiDeleteBin4Fill />
         Delete

@@ -1,5 +1,5 @@
 import { itemsAtom, peopleAtom } from "@atoms";
-import { Card, Checkbox } from "@global-components";
+import { Checkbox } from "@global-components";
 import { useAtom } from "jotai";
 import { FC } from "react";
 import { globalScope } from "utils/constants";
@@ -7,16 +7,16 @@ import { getItem, getPerson } from "utils/functions";
 import Header from "./Header";
 import { StyledCard } from "./styles";
 
-type AssignFormProps = {
-  itemId: string;
+type AssignItemsFormProps = {
+  personId: string;
 };
 
-const AssignForm: FC<AssignFormProps> = (props) => {
-  const { itemId } = props;
+const AssignItemsForm: FC<AssignItemsFormProps> = (props) => {
+  const { personId } = props;
   const [people, setPeople] = useAtom(peopleAtom, globalScope);
   const [items, setItems] = useAtom(itemsAtom, globalScope);
 
-  const handlePersonClick = (personId: string, checked: boolean) => {
+  const handleItemClick = (itemId: string, checked: boolean) => {
     const targetPerson = getPerson(personId, people);
     const targetItem = getItem(itemId, items);
 
@@ -48,13 +48,13 @@ const AssignForm: FC<AssignFormProps> = (props) => {
   return (
     <StyledCard header={<Header />} borderless>
       <div className="checkbox-container">
-        {people.map((person) => (
+        {items.map((item) => (
           <Checkbox
-            key={person.personId}
-            label={person.name}
-            checked={getPerson(person.personId, people)?.items.includes(itemId)}
+            key={item.itemId}
+            label={item.item}
+            checked={getItem(item.itemId, items)?.people.includes(personId)}
             onChange={(event) =>
-              handlePersonClick(person.personId, event.currentTarget.checked)
+              handleItemClick(item.itemId, event.currentTarget.checked)
             }
           />
         ))}
@@ -63,4 +63,4 @@ const AssignForm: FC<AssignFormProps> = (props) => {
   );
 };
 
-export default AssignForm;
+export default AssignItemsForm;
