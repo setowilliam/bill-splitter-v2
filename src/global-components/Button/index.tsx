@@ -7,7 +7,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const { children, ...rest } = props;
 
   return (
-    <StyledButton ref={ref} {...rest}>
+    <StyledButton layout ref={ref} {...rest}>
       {children}
     </StyledButton>
   );

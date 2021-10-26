@@ -24,7 +24,7 @@ export const LeadingIconContainer = styled.div`
   justify-content: center;
 `;
 
-export const ParentContainer = styled.div`
+export const ParentContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 0.25rem;

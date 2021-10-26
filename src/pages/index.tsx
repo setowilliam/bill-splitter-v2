@@ -21,40 +21,39 @@ const Home: NextPage = () => {
 
   return (
     <AnimateSharedLayout>
-      <ListContainer layout>
-        <motion.div layout>
-          <AnimatePresence>
-            {Boolean(people.length) && (
-              <CardContainer key="people" header="People">
-                {people.map((person, index) => (
-                  <PersonCard
-                    key={person.personId}
-                    person={person}
-                    index={index}
-                  />
-                ))}
-              </CardContainer>
-            )}
-          </AnimatePresence>
-          <AddPersonForm />
-        </motion.div>
+      <AnimatePresence>
+        {Boolean(people.length) && (
+          <CardContainer key="people" header="People">
+            {people.map((person, index) => (
+              <PersonCard key={person.personId} person={person} index={index} />
+            ))}
+          </CardContainer>
+        )}
+      </AnimatePresence>
 
-        <motion.div layout>
-          <AnimatePresence>
-            {Boolean(items.length) && (
-              <CardContainer key="items" header="Items">
-                {items.map((item, index) => (
-                  <ItemCard key={item.itemId} item={item} index={index} />
-                ))}
-              </CardContainer>
-            )}
-          </AnimatePresence>
-          <AddItemForm />
-        </motion.div>
-      </ListContainer>
+      <AnimatePresence>
+        {Boolean(items.length) && (
+          <CardContainer key="items" header="Items">
+            {items.map((item, index) => (
+              <ItemCard key={item.itemId} item={item} index={index} />
+            ))}
+          </CardContainer>
+        )}
+      </AnimatePresence>
 
-      <motion.hr layout />
+      <AnimatePresence>
+        {Boolean(items.length || people.length) && (
+          <motion.hr
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            layout
+          />
+        )}
+      </AnimatePresence>
 
+      <AddPersonForm />
+      <AddItemForm />
       <Button layout onClick={() => router.push("/results")}>
         Calculate
       </Button>

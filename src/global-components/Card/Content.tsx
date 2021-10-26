@@ -10,14 +10,13 @@ import { CardContainer } from "./styles";
 import { CardProps } from "./typings";
 
 const Content: FC<CardProps> = (props) => {
-  const { id, header, footer, children, borderless, ...rest } = props;
+  const { header, footer, children, borderless, ...rest } = props;
   const [headerRef, setHeaderRef] = useState<HTMLButtonElement | null>(null);
   const [closed] = useAtom(toggleAtom);
 
   return (
     <CardContainer
       layout
-      key={id}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

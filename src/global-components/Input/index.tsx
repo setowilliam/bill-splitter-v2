@@ -40,7 +40,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   };
 
   return (
-    <ParentContainer>
+    <ParentContainer layout>
       {label && <LabelContainer>{label}</LabelContainer>}
       <InputContainer>
         {leadingIcon && (

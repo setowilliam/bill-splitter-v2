@@ -17,7 +17,7 @@ const MainLayout: FC<MainLayoutProps> = (props) => {
       initial={router.pathname === "/" ? "left" : "right"}
       exit={router.pathname === "/" ? "right" : "left"}
     >
-      {children}
+      <div>{children}</div>
     </MainLayoutContainer>
   );
 };

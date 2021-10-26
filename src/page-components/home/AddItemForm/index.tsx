@@ -33,7 +33,7 @@ const AddItemForm: FC<AddItemFormProps> = (props) => {
   };
 
   return (
-    <Card header={<Header />} borderless>
+    <Card header={<Header />}>
       <StyledForm
         layout
         onSubmit={handleSubmit(onSubmit)}
