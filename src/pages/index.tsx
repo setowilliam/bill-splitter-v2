@@ -12,7 +12,6 @@ import {
   ItemCard,
   PersonCard,
 } from "page-components/home";
-import { ListContainer } from "page-components/home/styles";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -54,7 +53,11 @@ const Home: NextPage = () => {
 
       <AddPersonForm />
       <AddItemForm />
-      <Button layout onClick={() => router.push("/results")}>
+      <Button
+        layout
+        onClick={() => router.push("/results")}
+        disabled={!(items.length && people.length)}
+      >
         Calculate
       </Button>
     </AnimateSharedLayout>
