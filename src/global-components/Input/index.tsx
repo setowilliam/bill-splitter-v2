@@ -32,7 +32,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 
   const handleBlur: FocusEventHandler<HTMLInputElement> = (event) => {
     props.onBlur?.(event);
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
   const handleFocus: FocusEventHandler<HTMLInputElement> = (event) => {
