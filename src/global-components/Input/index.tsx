@@ -35,7 +35,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   };
 
   const handleFocus: FocusEventHandler<HTMLInputElement> = (event) => {
-    setTransparent(true);
+    // setTransparent(true);
     props.onFocus?.(event);
   };
 
