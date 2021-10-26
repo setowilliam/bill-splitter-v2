@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { HTMLMotionProps } from "framer-motion";
+import { AnimatePresence, HTMLMotionProps } from "framer-motion";
 
 import { Card } from "@global-components";
 
@@ -14,8 +14,17 @@ const CardContainer: FC<CardContainerProps> = (props) => {
   const { children, header, ...rest } = props;
 
   return (
-    <Card header={<Header>{header}</Header>} borderless {...rest}>
-      <ContentContainer>{children}</ContentContainer>
+    <Card
+      header={<Header>{header}</Header>}
+      borderless
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      {...rest}
+    >
+      <ContentContainer>
+        <AnimatePresence>{children}</AnimatePresence>
+      </ContentContainer>
     </Card>
   );
 };
