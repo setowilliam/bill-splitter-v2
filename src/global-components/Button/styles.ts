@@ -7,7 +7,7 @@ export const StyledButton = styled(motion.button)<ButtonProps>`
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 0.5rem;
-  padding: 0.5rem 0.75rem;
+  padding: 1rem;
   white-space: nowrap;
   opacity: ${({ disabled }) => (disabled ? 0.4 : 1)};
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};

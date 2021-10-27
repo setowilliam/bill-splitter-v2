@@ -46,7 +46,7 @@ const AssignItemsForm: FC<AssignItemsFormProps> = (props) => {
   };
 
   return (
-    <StyledCard header={<Header />} borderless>
+    <StyledCard header={<Header />}>
       <div className="checkbox-container">
         {items.map((item) => (
           <Checkbox
