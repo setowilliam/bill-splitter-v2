@@ -17,7 +17,7 @@ const Content: FC<CardProps> = (props) => {
   return (
     <CardContainer
       layout
-      initial={{ opacity: 0 }}
+      initial={{ opacity: 0, borderRadius: "0.5rem" }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       style={{ height: closed ? headerRef?.clientHeight || "auto" : "auto" }}

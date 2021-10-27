@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <PageLayout>
       <NavBar />
-      <AnimatePresence initial={false}>
+      <AnimatePresence>
         <MainLayout key={router.pathname}>
           <Component {...pageProps} />
         </MainLayout>

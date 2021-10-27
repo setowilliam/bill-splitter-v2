@@ -15,7 +15,6 @@ const CardHeader = forwardRef<HTMLButtonElement, CardHeaderProps>(
     return (
       <StyledCardHeader
         ref={ref}
-        layout
         variant="borderless"
         onClick={() => setClosed(!closed)}
       >

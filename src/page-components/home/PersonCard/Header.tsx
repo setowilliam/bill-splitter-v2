@@ -1,4 +1,6 @@
 import { FC } from "react";
+import { MdFastfood } from "react-icons/md";
+
 import { PersonType } from "utils/typings";
 
 import { HeaderContainer } from "./styles";
@@ -13,7 +15,10 @@ const Header: FC<HeaderProps> = (props) => {
   return (
     <HeaderContainer layout>
       <span>{person.name}</span>
-      <span>{person.items.length}</span>
+      <span className="count">
+        {person.items.length}
+        <MdFastfood />
+      </span>
     </HeaderContainer>
   );
 };

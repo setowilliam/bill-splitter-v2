@@ -17,7 +17,7 @@ const CardContainer: FC<CardContainerProps> = (props) => {
     <Card
       header={<Header>{header}</Header>}
       borderless
-      initial={{ opacity: 0 }}
+      initial={{ opacity: 0, borderRadius: "0.5rem" }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       {...rest}
