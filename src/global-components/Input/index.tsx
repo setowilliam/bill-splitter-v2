@@ -39,7 +39,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     if (!inputFocus) {
       scrollTop.current = setTimeout(() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 50);
+      }, 100);
     } else {
       scrollTop.current && clearTimeout(scrollTop.current);
       scrollTop.current = null;
