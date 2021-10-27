@@ -36,7 +36,9 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
       >
         <motion.div className="toggle" layout />
       </motion.div>
-      <span className="text">{label}</span>
+      <motion.span className="text" layout>
+        {label}
+      </motion.span>
     </CheckboxContainer>
   );
 });
