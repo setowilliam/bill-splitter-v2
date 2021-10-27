@@ -27,7 +27,7 @@ const Results: NextPage = () => {
     <>
       <BackButton />
       <AnimateSharedLayout>
-        <CardContainer header="Results">
+        <CardContainer header="Results" open={true}>
           {Object.values(results).map((result) => {
             return <ResultCard key={result.personId} result={result} />;
           })}
