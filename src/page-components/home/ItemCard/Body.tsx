@@ -10,6 +10,7 @@ import { globalScope } from "utils/constants";
 import { getPerson } from "utils/functions";
 import { AnimatePresence } from "framer-motion";
 import AssignPeopleForm from "../AssignPeopleForm";
+import { StyledBody } from "./styles";
 
 type BodyProps = { itemId: string; index: number };
 
@@ -44,7 +45,7 @@ const Body: FC<BodyProps> = (props) => {
   // const disabled = !people.some((person) => !person.items.includes(itemId));
 
   return (
-    <>
+    <StyledBody>
       <AnimatePresence>
         <AssignPeopleForm itemId={itemId} />
       </AnimatePresence>
@@ -57,7 +58,7 @@ const Body: FC<BodyProps> = (props) => {
         Delete
       </Button>
       {/* <AssignForm itemId={itemId} /> */}
-    </>
+    </StyledBody>
   );
 };
 

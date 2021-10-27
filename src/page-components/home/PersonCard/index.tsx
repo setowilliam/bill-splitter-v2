@@ -5,6 +5,7 @@ import { PersonType } from "utils/typings";
 
 import Header from "./Header";
 import Body from "./Body";
+import { StyledCard } from "./styles";
 
 type PersonCardProps = {
   person: PersonType;
@@ -15,9 +16,9 @@ const PersonCard: FC<PersonCardProps> = (props) => {
   const { person, index } = props;
 
   return (
-    <Card header={<Header person={person} />}>
+    <StyledCard header={<Header person={person} />}>
       <Body index={index} personId={person.personId} />
-    </Card>
+    </StyledCard>
   );
 };
 

@@ -5,14 +5,15 @@ import { Card } from "@global-components";
 import Header from "./Header";
 import Body from "./Body";
 import { ItemCardProps } from "./typings";
+import { StyledCard } from "./styles";
 
 const ItemCard: FC<ItemCardProps> = (props) => {
   const { item, index } = props;
 
   return (
-    <Card header={<Header item={item} />}>
+    <StyledCard header={<Header item={item} />}>
       <Body index={index} itemId={item.itemId} />
-    </Card>
+    </StyledCard>
   );
 };
 

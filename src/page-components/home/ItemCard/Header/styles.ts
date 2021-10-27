@@ -6,5 +6,4 @@ export const HeaderContainer = styled(motion.div)`
   justify-content: space-between;
   width: 100%;
   z-index: 4;
-  background-color: white;
 `;
