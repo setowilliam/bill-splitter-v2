@@ -8,8 +8,17 @@ export const HeaderContainer = styled(motion.div)`
   width: 100%;
 
   .count {
-    display: flex;
+    display: grid;
     gap: 0.25rem;
+    grid-template-areas: "number icon";
+
+    .number {
+      grid-area: number;
+    }
+
+    .icon {
+      grid-area: icon;
+    }
   }
 `;
 
