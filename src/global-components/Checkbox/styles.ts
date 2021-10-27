@@ -5,4 +5,10 @@ export const CheckboxContainer = styled(motion.label)`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
+  .text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;

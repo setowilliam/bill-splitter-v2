@@ -26,7 +26,10 @@ const Content: FC<CardProps> = (props) => {
       initial={{ opacity: 0, borderRadius: "0.5rem" }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      style={{ height: closed ? headerRef?.clientHeight || "auto" : "auto" }}
+      style={{
+        height: closed ? headerRef?.clientHeight || "auto" : "auto",
+        width: closed ? headerRef?.clientWidth || "auto" : "100%",
+      }}
       $borderless={borderless}
       {...rest}
     >

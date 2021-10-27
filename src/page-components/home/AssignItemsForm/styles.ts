@@ -14,7 +14,7 @@ export const StyledCard = styled(Card)`
 
   .checkbox-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(auto, 6rem));
     gap: 1rem;
   }
 `;

@@ -9,9 +9,9 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
   const { label, ...rest } = props;
 
   return (
-    <CheckboxContainer>
+    <CheckboxContainer layout>
       <input ref={ref} type="checkbox" {...rest} />
-      {label}
+      <span className="text">{label}</span>
     </CheckboxContainer>
   );
 });
