@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { toggleAtom } from "@atoms";
 
@@ -10,9 +10,15 @@ import { CardContainer } from "./styles";
 import { CardProps } from "./typings";
 
 const Content: FC<CardProps> = (props) => {
-  const { header, footer, children, borderless, ...rest } = props;
+  const { header, footer, children, borderless, open, ...rest } = props;
   const [headerRef, setHeaderRef] = useState<HTMLButtonElement | null>(null);
-  const [closed] = useAtom(toggleAtom);
+  const [closed, setClosed] = useAtom(toggleAtom);
+
+  useEffect(() => {
+    if (open !== undefined) {
+      setClosed(!open);
+    }
+  }, [open, setClosed]);
 
   return (
     <CardContainer

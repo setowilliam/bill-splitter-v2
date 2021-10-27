@@ -22,7 +22,7 @@ const Home: NextPage = () => {
     <AnimateSharedLayout>
       <AnimatePresence>
         {Boolean(people.length) && (
-          <CardContainer key="people" header="People">
+          <CardContainer key="people" header="People" open={true}>
             {people.map((person, index) => (
               <PersonCard key={person.personId} person={person} index={index} />
             ))}
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
 
       <AnimatePresence>
         {Boolean(items.length) && (
-          <CardContainer key="items" header="Items">
+          <CardContainer key="items" header="Items" open={true}>
             {items.map((item, index) => (
               <ItemCard key={item.itemId} item={item} index={index} />
             ))}

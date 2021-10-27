@@ -6,4 +6,5 @@ export type CardProps = HTMLMotionProps<"div"> & {
   footer?: ReactNode;
   borderless?: boolean;
   id?: string;
+  open?: boolean;
 };
