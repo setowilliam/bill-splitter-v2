@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { IoMdPeople } from "react-icons/io";
 import { formatMoney } from "utils/functions";
 import { ItemType } from "utils/typings";
 
@@ -13,8 +14,12 @@ const Header: FC<HeaderProps> = (props) => {
 
   return (
     <HeaderContainer layout>
-      <span>{item.item}</span>
-      <span>{formatMoney(item.price)}</span>
+      <span className="name">{item.item}</span>
+      <span className="price">{formatMoney(item.price)}</span>
+      <span className="count">
+        <IoMdPeople />
+        {item.people.length || "Shared"}
+      </span>
     </HeaderContainer>
   );
 };
