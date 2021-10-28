@@ -1,7 +1,5 @@
 import { FC } from "react";
 
-import { Card } from "@global-components";
-
 import Header from "./Header";
 import Body from "./Body";
 import { ItemCardProps } from "./typings";

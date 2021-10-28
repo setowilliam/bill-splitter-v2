@@ -1,6 +1,5 @@
 import { FC } from "react";
 
-import { Card } from "@global-components";
 import { PersonType } from "utils/typings";
 
 import Header from "./Header";
