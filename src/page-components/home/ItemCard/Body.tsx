@@ -57,7 +57,6 @@ const Body: FC<BodyProps> = (props) => {
         <RiDeleteBin4Fill />
         Delete
       </Button>
-      {/* <AssignForm itemId={itemId} /> */}
     </StyledBody>
   );
 };

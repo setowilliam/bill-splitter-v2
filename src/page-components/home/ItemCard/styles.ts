@@ -12,8 +12,12 @@ export const StyledCard = styled(Card)`
 `;
 
 export const StyledBody = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "assign assign" "edit delete";
   gap: 0.5rem;
-  align-items: flex-start;
+
+  .assign {
+    grid-area: assign;
+  }
 `;

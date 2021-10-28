@@ -46,7 +46,7 @@ const AssignPeopleForm: FC<AssignPeopleFormProps> = (props) => {
   };
 
   return (
-    <StyledCard header={<Header />}>
+    <StyledCard header={<Header />} className="assign">
       <div className="checkbox-container">
         {people.map((person) => (
           <Checkbox
