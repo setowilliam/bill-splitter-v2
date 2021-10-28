@@ -15,7 +15,7 @@ const AssignForm: FC<AssignFormProps> = (props) => {
       header={<HeaderContainer>{header}</HeaderContainer>}
       open={true}
     >
-      <CheckboxContainer>{children}</CheckboxContainer>
+      <CheckboxContainer layout>{children}</CheckboxContainer>
     </CardContainer>
   );
 };

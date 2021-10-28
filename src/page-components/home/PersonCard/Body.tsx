@@ -1,5 +1,6 @@
 import { itemsAtom, peopleAtom } from "@atoms";
 import { Button } from "@global-components";
+import { AnimatePresence } from "framer-motion";
 import { useAtom } from "jotai";
 import { FC } from "react";
 import { RiDeleteBin4Fill } from "react-icons/ri";
@@ -42,7 +43,9 @@ const Body: FC<BodyProps> = (props) => {
 
   return (
     <StyledBody>
-      <AssignItemsForm personId={personId} />
+      <AnimatePresence>
+        {Boolean(items.length) && <AssignItemsForm personId={personId} />}
+      </AnimatePresence>
       <Button layout variant="borderless" onClick={handleDeleteClick}>
         <RiDeleteBin4Fill />
         Delete

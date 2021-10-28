@@ -45,7 +45,7 @@ const Body: FC<BodyProps> = (props) => {
   return (
     <StyledBody>
       <AnimatePresence>
-        {people.length && <AssignPeopleForm itemId={itemId} />}
+        {Boolean(people.length) && <AssignPeopleForm itemId={itemId} />}
       </AnimatePresence>
       <Button layout variant="borderless">
         <RiEditFill />
