@@ -8,3 +8,4 @@ export const taxAtom = atom(13);
 export const tipAtom = atom(0);
 export const footerAtom = atom(false);
 export const inputAtom = atom(false);
+export const menuAtom = atom(false);

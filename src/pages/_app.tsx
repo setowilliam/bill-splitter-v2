@@ -2,7 +2,13 @@ import type { AppProps } from "next/app";
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/dist/client/router";
 
-import { Footer, MainLayout, NavBar, PageLayout } from "@layout-components";
+import {
+  Footer,
+  MainLayout,
+  Menu,
+  NavBar,
+  PageLayout,
+} from "@layout-components";
 
 import "../styles/globals.css";
 
@@ -12,6 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <PageLayout>
       <NavBar />
+      <Menu />
       <AnimatePresence>
         <MainLayout key={router.pathname}>
           <Component {...pageProps} />

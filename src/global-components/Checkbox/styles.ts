@@ -6,7 +6,6 @@ export const CheckboxContainer = styled(motion.label)<{ $checked: boolean }>`
   grid-template-columns: auto auto;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.25rem;
   position: relative;
 
   input {
@@ -37,5 +36,6 @@ export const CheckboxContainer = styled(motion.label)<{ $checked: boolean }>`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding-left: 0.25rem;
   }
 `;
