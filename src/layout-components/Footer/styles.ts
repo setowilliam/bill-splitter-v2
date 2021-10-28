@@ -5,7 +5,14 @@ export const FooterContainer = styled(motion.div)`
   padding: 1rem;
   position: fixed;
   bottom: 0;
-  background-color: yellow;
+  background-color: white;
   width: 100%;
   height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    padding: 0;
+  }
 `;

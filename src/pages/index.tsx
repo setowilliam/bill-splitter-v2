@@ -53,13 +53,6 @@ const Home: NextPage = () => {
 
       <AddPersonForm />
       <AddItemForm />
-      <Button
-        layout
-        onClick={() => router.push("/results")}
-        disabled={!(items.length && people.length)}
-      >
-        Calculate
-      </Button>
     </AnimateSharedLayout>
   );
 };
