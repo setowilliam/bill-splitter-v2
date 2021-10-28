@@ -16,8 +16,10 @@
     "baseUrl": "src",
     "paths": {
       "@layout-components": ["layout-components"],
+      "@page-components": ["page-components"],
       "@page-components/home": ["page-components/home"],
       "@page-components/results": ["page-components/results"],
+      "@page-components/add": ["page-components/add"],
       "@global-components": ["global-components"],
       "@atoms": ["atoms"]
     },

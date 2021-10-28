@@ -4,8 +4,6 @@ import { FC } from "react";
 import { FaChevronLeft } from "react-icons/fa";
 import styled from "styled-components";
 
-type BackButtonProps = {};
-
 const StyledButton = styled(Button)`
   align-self: flex-start;
   align-items: center;
@@ -16,7 +14,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const BackButton: FC<BackButtonProps> = (props) => {
+const BackButton: FC = () => {
   const router = useRouter();
 
   return (

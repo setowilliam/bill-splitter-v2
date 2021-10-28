@@ -8,7 +8,8 @@ import { itemsAtom, peopleAtom } from "@atoms";
 import { globalScope } from "utils/constants";
 import { getResults } from "utils/functions";
 import { CardContainer } from "@global-components";
-import { BackButton, ResultCard, TotalCard } from "page-components/results";
+import { ResultCard, TotalCard } from "page-components/results";
+import { BackButton } from "@page-components";
 
 const Results: NextPage = () => {
   const [items] = useAtom(itemsAtom, globalScope);
