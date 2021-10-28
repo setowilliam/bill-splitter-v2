@@ -7,4 +7,5 @@ export type CardProps = HTMLMotionProps<"div"> & {
   borderless?: boolean;
   id?: string;
   open?: boolean;
+  disabled?: boolean;
 };

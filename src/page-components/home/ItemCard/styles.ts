@@ -8,7 +8,7 @@ export const AssignContainer = styled.div`
 `;
 
 export const StyledCard = styled(Card)`
-  background-color: #ddd;
+  background-color: #ededed;
 `;
 
 export const StyledBody = styled.div`

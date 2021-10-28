@@ -42,12 +42,10 @@ const Body: FC<BodyProps> = (props) => {
     setItems(newItems);
   };
 
-  // const disabled = !people.some((person) => !person.items.includes(itemId));
-
   return (
     <StyledBody>
       <AnimatePresence>
-        <AssignPeopleForm itemId={itemId} />
+        {people.length && <AssignPeopleForm itemId={itemId} />}
       </AnimatePresence>
       <Button layout variant="borderless">
         <RiEditFill />

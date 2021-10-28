@@ -10,7 +10,8 @@ import { CardContainer } from "./styles";
 import { CardProps } from "./typings";
 
 const Content: FC<CardProps> = (props) => {
-  const { header, footer, children, borderless, open, ...rest } = props;
+  const { header, footer, children, borderless, open, disabled, ...rest } =
+    props;
   const [headerRef, setHeaderRef] = useState<HTMLButtonElement | null>(null);
   const [closed, setClosed] = useAtom(toggleAtom);
 
@@ -33,7 +34,9 @@ const Content: FC<CardProps> = (props) => {
       $borderless={borderless}
       {...rest}
     >
-      <CardHeader ref={(node) => setHeaderRef(node)}>{header}</CardHeader>
+      <CardHeader ref={(node) => setHeaderRef(node)} disabled={disabled}>
+        {header}
+      </CardHeader>
       {headerRef && (
         <>
           {children && <CardBody>{children}</CardBody>}

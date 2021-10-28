@@ -5,11 +5,11 @@ import { toggleAtom } from "@atoms";
 
 import { StyledCardHeader } from "./styles";
 
-type CardHeaderProps = { children?: ReactNode };
+type CardHeaderProps = { children?: ReactNode; disabled?: boolean };
 
 const CardHeader = forwardRef<HTMLButtonElement, CardHeaderProps>(
   (props, ref) => {
-    const { children } = props;
+    const { children, disabled } = props;
     const [closed, setClosed] = useAtom(toggleAtom);
 
     const handleClick = () => {
@@ -17,7 +17,12 @@ const CardHeader = forwardRef<HTMLButtonElement, CardHeaderProps>(
     };
 
     return (
-      <StyledCardHeader ref={ref} variant="borderless" onClick={handleClick}>
+      <StyledCardHeader
+        disabled={disabled}
+        ref={ref}
+        variant="borderless"
+        onClick={handleClick}
+      >
         {children}
       </StyledCardHeader>
     );

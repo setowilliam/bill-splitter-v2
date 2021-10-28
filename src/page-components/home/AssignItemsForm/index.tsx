@@ -1,11 +1,12 @@
-import { itemsAtom, peopleAtom } from "@atoms";
-import { Checkbox } from "@global-components";
 import { useAtom } from "jotai";
 import { FC } from "react";
+import { MdFastfood } from "react-icons/md";
+
+import { itemsAtom, peopleAtom } from "@atoms";
+import { Checkbox } from "@global-components";
 import { globalScope } from "utils/constants";
 import { getItem, getPerson } from "utils/functions";
-import Header from "./Header";
-import { StyledCard } from "./styles";
+import AssignForm from "../AssignForm";
 
 type AssignItemsFormProps = {
   personId: string;
@@ -46,20 +47,25 @@ const AssignItemsForm: FC<AssignItemsFormProps> = (props) => {
   };
 
   return (
-    <StyledCard header={<Header />}>
-      <div className="checkbox-container">
-        {items.map((item) => (
-          <Checkbox
-            key={item.itemId}
-            label={item.item}
-            checked={getItem(item.itemId, items)?.people.includes(personId)}
-            onChange={(event) =>
-              handleItemClick(item.itemId, event.currentTarget.checked)
-            }
-          />
-        ))}
-      </div>
-    </StyledCard>
+    <AssignForm
+      header={
+        <>
+          <MdFastfood />
+          Assign to items
+        </>
+      }
+    >
+      {items.map((item) => (
+        <Checkbox
+          key={item.itemId}
+          label={item.item}
+          checked={getItem(item.itemId, items)?.people.includes(personId)}
+          onChange={(event) =>
+            handleItemClick(item.itemId, event.currentTarget.checked)
+          }
+        />
+      ))}
+    </AssignForm>
   );
 };
 
