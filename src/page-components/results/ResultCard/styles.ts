@@ -1,3 +1,4 @@
+import { Card } from "@global-components";
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
@@ -9,4 +10,8 @@ export const HeaderContainer = styled.div`
   h2 {
     font-size: 1rem;
   }
+`;
+
+export const StyledCard = styled(Card)`
+  background-color: #fcfcfc;
 `;
