@@ -11,5 +11,6 @@ export const MainLayoutContainer = styled(motion.main)`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    min-height: 100%;
   }
 `;
