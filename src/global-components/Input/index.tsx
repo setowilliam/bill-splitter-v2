@@ -24,10 +24,11 @@ import {
 type InputProps = Omit<HTMLProps<HTMLInputElement>, "ref" | "as"> & {
   leadingIcon?: ReactNode;
   label?: ReactNode;
+  setValue?: (value: string) => void;
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const { leadingIcon, label, ...rest } = props;
+  const { leadingIcon, label, setValue, ...rest } = props;
   const [hasValue, setHasValue] = useState(Boolean(rest.value));
 
   const [inputFocus, setInputFocus] = useAtom(inputAtom);
@@ -71,6 +72,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     const inputElement = containerRef.current?.querySelector("input");
 
     if (inputElement) {
+      setValue?.("");
       inputElement.value = "";
       setHasValue(false);
     }
@@ -93,7 +95,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         <CloseButton
           variant="borderless"
           onClick={handleClearClick}
-          disabled={!hasValue}
+          disabled={!hasValue || inputFocus}
           transition={{ duration: 0.2 }}
           animate={{ opacity: hasValue ? 1 : 0 }}
         >

@@ -8,7 +8,7 @@ import { HeaderContainer } from "./styles";
 type HeaderProps = {};
 
 const Header: FC<HeaderProps> = (props) => {
-  const {} = props;
+  const { children } = props;
   const [closed] = useAtom(toggleAtom);
 
   return (
@@ -18,7 +18,7 @@ const Header: FC<HeaderProps> = (props) => {
       ) : (
         <FaMinusCircle className="icon" />
       )}
-      <span>New Person</span>
+      {children}
     </HeaderContainer>
   );
 };

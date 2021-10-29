@@ -4,13 +4,12 @@ import { useForm } from "react-hook-form";
 import { nanoid } from "nanoid";
 import { MdFastfood } from "react-icons/md";
 
-import { Button, Card, Input } from "@global-components";
+import { Input } from "@global-components";
 import { itemsAtom } from "@atoms";
 
 import { globalScope } from "utils/constants";
 import { ItemType } from "utils/typings";
-import { StyledForm } from "./styles";
-import Header from "./Header";
+import AddForm from "./AddForm";
 
 type AddItemFormProps = {
   onSubmit?: () => void;
@@ -19,7 +18,7 @@ type AddItemFormProps = {
 const AddItemForm: FC<AddItemFormProps> = (props) => {
   const { onSubmit: onSubmitCallback } = props;
   const [items, setItems] = useAtom(itemsAtom, globalScope);
-  const { register, handleSubmit, reset, watch } =
+  const { register, handleSubmit, reset, watch, setValue } =
     useForm<Pick<ItemType, "item" | "price">>();
 
   const item = watch("item");
@@ -34,32 +33,29 @@ const AddItemForm: FC<AddItemFormProps> = (props) => {
   };
 
   return (
-    <Card header={<Header />}>
-      <StyledForm
-        layout
-        onSubmit={handleSubmit(onSubmit)}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        <Input
-          {...register("item")}
-          label="Item"
-          leadingIcon={<MdFastfood />}
-          value={item}
-        />
-        <Input
-          {...register("price", { valueAsNumber: true })}
-          label="Price"
-          leadingIcon="$"
-          type="number"
-          step=".01"
-          inputMode="decimal"
-          value={price}
-        />
-        <Button disabled={!Boolean(item && price)}>Add</Button>
-      </StyledForm>
-    </Card>
+    <AddForm
+      header="New Item"
+      onSubmit={handleSubmit(onSubmit)}
+      disabled={!Boolean(item && price)}
+    >
+      <Input
+        {...register("item")}
+        label="Item"
+        leadingIcon={<MdFastfood />}
+        value={item}
+        setValue={(value) => setValue("item", value)}
+      />
+      <Input
+        {...register("price", { valueAsNumber: true })}
+        label="Price"
+        leadingIcon="$"
+        type="number"
+        step=".01"
+        inputMode="decimal"
+        value={price}
+        setValue={(value) => setValue("price", parseInt(value))}
+      />
+    </AddForm>
   );
 };
 

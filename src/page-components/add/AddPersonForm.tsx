@@ -5,11 +5,10 @@ import { nanoid } from "nanoid";
 import { IoPersonCircleSharp } from "react-icons/io5";
 
 import { peopleAtom } from "@atoms";
-import { Button, Card, Input } from "@global-components";
+import { Input } from "@global-components";
 
 import { globalScope } from "utils/constants";
-import { StyledForm } from "./styles";
-import Header from "./Header";
+import AddForm from "./AddForm";
 
 type AddPersonFormProps = {
   onSubmit?: () => void;
@@ -18,7 +17,7 @@ type AddPersonFormProps = {
 const AddPersonForm: FC<AddPersonFormProps> = (props) => {
   const { onSubmit: onSubmitCallback } = props;
   const [people, setPeople] = useAtom(peopleAtom, globalScope);
-  const { register, handleSubmit, reset, watch } =
+  const { register, handleSubmit, reset, watch, setValue } =
     useForm<{ person: string }>();
 
   const name = watch("person");
@@ -33,23 +32,19 @@ const AddPersonForm: FC<AddPersonFormProps> = (props) => {
   };
 
   return (
-    <Card header={<Header />}>
-      <StyledForm
-        layout
-        onSubmit={handleSubmit(onSubmit)}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        <Input
-          {...register("person")}
-          label="Name"
-          leadingIcon={<IoPersonCircleSharp />}
-          value={name}
-        />
-        <Button disabled={!Boolean(name)}>Add</Button>
-      </StyledForm>
-    </Card>
+    <AddForm
+      header="New Person"
+      onSubmit={handleSubmit(onSubmit)}
+      disabled={!Boolean(name)}
+    >
+      <Input
+        {...register("person")}
+        label="Name"
+        leadingIcon={<IoPersonCircleSharp />}
+        value={name}
+        setValue={(value) => setValue("person", value as string)}
+      />
+    </AddForm>
   );
 };
 
