@@ -31,8 +31,4 @@ export const MenuItemContainer = styled(motion.div)`
     gap: 0.25rem;
     align-items: center;
   }
-
-  .icon {
-    font-size: 1.5rem;
-  }
 `;
