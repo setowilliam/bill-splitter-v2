@@ -1,8 +1,10 @@
 import { FC, ReactNode } from "react";
 
-import { CardContainer } from "@global-components";
-
-import { CheckboxContainer, HeaderContainer } from "./styles";
+import {
+  CheckboxContainer,
+  HeaderContainer,
+  StyledCardContainer,
+} from "./styles";
 
 type AssignFormProps = { header: ReactNode };
 
@@ -10,13 +12,13 @@ const AssignForm: FC<AssignFormProps> = (props) => {
   const { children, header } = props;
 
   return (
-    <CardContainer
+    <StyledCardContainer
       className="assign"
       header={<HeaderContainer>{header}</HeaderContainer>}
       open={true}
     >
       <CheckboxContainer layout>{children}</CheckboxContainer>
-    </CardContainer>
+    </StyledCardContainer>
   );
 };
 

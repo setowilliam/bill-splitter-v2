@@ -13,6 +13,9 @@ export const HeaderContainer = styled.div`
 `;
 
 export const StyledCard = styled(Card)`
-  /* background-color: #fcfcfc; */
-  background-color: ${(props) => props.theme.card};
+  background-color: ${(props) => props.theme.card2};
+
+  > div {
+    background-color: ${(props) => props.theme.card2};
+  }
 `;

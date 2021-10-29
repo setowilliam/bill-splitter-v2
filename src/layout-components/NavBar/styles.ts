@@ -9,7 +9,7 @@ export const NavBarContainer = styled.div`
   align-items: center;
   z-index: 3;
   background-color: ${(props) => props.theme.background};
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid ${(props) => props.theme.border};
 
   .menu-icon {
     font-size: 1.5rem;

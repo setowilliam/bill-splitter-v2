@@ -1,4 +1,3 @@
-import { Button } from "@global-components";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
@@ -11,7 +10,7 @@ export const MenuContainer = styled(motion.div)`
   height: fit-content;
 
   background-color: ${(props) => props.theme.background};
-  box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 1px 4px 0 ${(props) => props.theme.border};
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   z-index: 2;

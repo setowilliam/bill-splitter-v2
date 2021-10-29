@@ -4,6 +4,8 @@ declare module "styled-components" {
     text: string;
     border: string;
     card: string;
+    card2: string;
+    card3: string;
   }
 }
 
