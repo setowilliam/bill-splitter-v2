@@ -18,6 +18,6 @@ export const HeaderContainer = styled.div`
 
 export const CheckboxContainer = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(6.5rem, auto));
   gap: 1rem;
 `;

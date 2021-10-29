@@ -1,11 +1,14 @@
 import type { NextPage } from "next";
-import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { useAtom } from "jotai";
 
-import { CardContainer } from "@global-components";
 import { itemsAtom, peopleAtom } from "@atoms";
 import { globalScope } from "utils/constants";
 import { ItemCard, PersonCard, Welcome } from "page-components/home";
+import { Title } from "@page-components";
+import { BsPeopleFill } from "react-icons/bs";
+import { MdFastfood } from "react-icons/md";
+import { fadeVariants } from "utils/animations";
 
 const Home: NextPage = () => {
   const [items] = useAtom(itemsAtom, globalScope);
@@ -16,29 +19,41 @@ const Home: NextPage = () => {
   return (
     <>
       <AnimateSharedLayout>
-        <AnimatePresence>{showWelcome && <Welcome />}</AnimatePresence>
         <AnimatePresence>
+          {showWelcome && <Welcome />}
           {Boolean(people.length) && (
-            <CardContainer key="people" header="People" open={true}>
-              {people.map((person, index) => (
-                <PersonCard
-                  key={person.personId}
-                  person={person}
-                  index={index}
-                />
-              ))}
-            </CardContainer>
+            <Title
+              layout
+              variants={fadeVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
+              <BsPeopleFill className="icon" />
+              People
+            </Title>
           )}
+          {people.map((person, index) => (
+            <PersonCard key={person.personId} person={person} index={index} />
+          ))}
         </AnimatePresence>
 
         <AnimatePresence>
           {Boolean(items.length) && (
-            <CardContainer key="items" header="Items" open={true}>
-              {items.map((item, index) => (
-                <ItemCard key={item.itemId} item={item} index={index} />
-              ))}
-            </CardContainer>
+            <Title
+              layout
+              variants={fadeVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
+              <MdFastfood className="icon" />
+              Items
+            </Title>
           )}
+          {items.map((item, index) => (
+            <ItemCard key={item.itemId} item={item} index={index} />
+          ))}
         </AnimatePresence>
       </AnimateSharedLayout>
     </>

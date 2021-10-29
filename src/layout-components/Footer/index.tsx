@@ -1,11 +1,11 @@
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/dist/client/router";
 import { FC } from "react";
+import { fadeVariants } from "utils/animations";
 import AddButton from "./AddButton";
 import CalculateButton from "./CalculateButton";
 import DoneButton from "./DoneButton";
 import { FooterContainer } from "./styles";
-import { fadeVariants } from "./utils";
 
 type FooterProps = {};
 
