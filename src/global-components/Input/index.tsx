@@ -46,6 +46,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     }
   }, [inputFocus]);
 
+  useEffect(() => {
+    setHasValue(Boolean(rest.value));
+  }, [rest.value]);
+
   const handleBlur: FocusEventHandler<HTMLInputElement> = (event) => {
     setInputFocus(false);
     props.onBlur?.(event);

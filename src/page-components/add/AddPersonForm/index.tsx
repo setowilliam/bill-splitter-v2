@@ -45,6 +45,7 @@ const AddPersonForm: FC<AddPersonFormProps> = (props) => {
           {...register("person")}
           label="Name"
           leadingIcon={<IoPersonCircleSharp />}
+          value={name}
         />
         <Button disabled={!Boolean(name)}>Add</Button>
       </StyledForm>

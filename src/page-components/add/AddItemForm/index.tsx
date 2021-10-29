@@ -19,7 +19,8 @@ type AddItemFormProps = {
 const AddItemForm: FC<AddItemFormProps> = (props) => {
   const { onSubmit: onSubmitCallback } = props;
   const [items, setItems] = useAtom(itemsAtom, globalScope);
-  const { register, handleSubmit, reset, watch } = useForm<ItemType>();
+  const { register, handleSubmit, reset, watch } =
+    useForm<Pick<ItemType, "item" | "price">>();
 
   const item = watch("item");
   const price = watch("price");
@@ -45,6 +46,7 @@ const AddItemForm: FC<AddItemFormProps> = (props) => {
           {...register("item")}
           label="Item"
           leadingIcon={<MdFastfood />}
+          value={item}
         />
         <Input
           {...register("price", { valueAsNumber: true })}
@@ -53,6 +55,7 @@ const AddItemForm: FC<AddItemFormProps> = (props) => {
           type="number"
           step=".01"
           inputMode="decimal"
+          value={price}
         />
         <Button disabled={!Boolean(item && price)}>Add</Button>
       </StyledForm>
