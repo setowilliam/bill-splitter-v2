@@ -9,14 +9,14 @@ export const NavBarContainer = styled.div`
   align-items: center;
   z-index: 3;
   background-color: white;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid lightgray;
 
   .menu-icon {
     font-size: 1.5rem;
   }
 
   button {
-    padding: 0;
+    margin: -1rem;
   }
 `;
 

@@ -6,7 +6,7 @@ import styled from "styled-components";
 const StyledButton = styled(Button)`
   align-self: flex-start;
   align-items: center;
-  padding: 0;
+  margin: -1rem;
   color: rgb(0, 122, 255);
   font-size: 1.1rem;
 `;
