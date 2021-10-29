@@ -9,7 +9,6 @@ export const StyledInput = styled.input<{ $transparent: boolean }>`
 
 export const InputContainer = styled(motion.div)`
   background-color: ${(props) => props.theme.background};
-  /* background-color: transparent; */
   border-radius: 0.5rem;
   border: 1px solid #9f9f9f;
   width: fit-content;
@@ -29,10 +28,8 @@ export const ParentContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  background-color: transparent;
 `;
 
 export const LabelContainer = styled.label`
   font-size: 0.75rem;
-  background-color: transparent;
 `;

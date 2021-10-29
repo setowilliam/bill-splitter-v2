@@ -27,7 +27,6 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     -webkit-tap-highlight-color: transparent;
     color: ${(props) => props.theme.text};
-    background-color: ${(props) => props.theme.background};
     font-size: 1rem;
   }
 `;

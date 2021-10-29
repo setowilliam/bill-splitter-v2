@@ -16,7 +16,6 @@ export const FooterContainer = styled(motion.div)`
 `;
 
 export const StyledButton = styled(Button)`
-  background-color: transparent;
   color: rgb(0, 122, 255);
   font-size: 1.1rem;
 
