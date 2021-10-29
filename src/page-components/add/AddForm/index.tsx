@@ -14,11 +14,18 @@ type AddFormProps = {
 const AddForm: FC<AddFormProps> = (props) => {
   const { disabled, onSubmit, header, children } = props;
 
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
+    if (disabled) {
+      event.preventDefault();
+    } else {
+      onSubmit?.(event);
+    }
+  };
   return (
     <Card header={<Header>{header}</Header>}>
       <StyledForm
         layout
-        onSubmit={onSubmit}
+        onSubmit={handleSubmit}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
