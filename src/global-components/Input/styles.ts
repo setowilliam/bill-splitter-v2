@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const StyledInput = styled.input<{ $transparent: boolean }>`
+import Button from "global-components/Button";
+
+export const StyledInput = styled.input`
   all: unset;
   font-size: 1rem;
-  opacity: ${(props) => (props.$transparent ? 0 : 1)};
 `;
 
 export const InputContainer = styled(motion.div)`
@@ -32,4 +33,10 @@ export const ParentContainer = styled(motion.div)`
 
 export const LabelContainer = styled.label`
   font-size: 0.75rem;
+`;
+
+export const CloseButton = styled(Button)`
+  background-color: transparent;
+  padding: 0.5rem;
+  margin: -0.5rem;
 `;

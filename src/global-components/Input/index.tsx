@@ -1,15 +1,19 @@
 import { inputAtom } from "@atoms";
 import { useAtom } from "jotai";
 import {
+  ChangeEventHandler,
   FocusEventHandler,
   forwardRef,
   HTMLProps,
+  MouseEventHandler,
   ReactNode,
   useEffect,
   useRef,
   useState,
 } from "react";
+import { AiFillCloseCircle } from "react-icons/ai";
 import {
+  CloseButton,
   InputContainer,
   LabelContainer,
   LeadingIconContainer,
@@ -24,16 +28,12 @@ type InputProps = Omit<HTMLProps<HTMLInputElement>, "ref" | "as"> & {
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const { leadingIcon, label, ...rest } = props;
+  const [hasValue, setHasValue] = useState(Boolean(rest.value));
 
-  const [transparent, setTransparent] = useState(false);
   const [inputFocus, setInputFocus] = useAtom(inputAtom);
 
+  const containerRef = useRef<HTMLDivElement>(null);
   const scrollTop = useRef<ReturnType<typeof setTimeout> | null>(null);
-  useEffect(() => {
-    if (transparent) {
-      setTimeout(() => setTransparent(false), 200);
-    }
-  }, [transparent]);
 
   useEffect(() => {
     if (!inputFocus) {
@@ -52,25 +52,49 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   };
 
   const handleFocus: FocusEventHandler<HTMLInputElement> = (event) => {
-    // setTransparent(true);
     setInputFocus(true);
     props.onFocus?.(event);
+  };
+
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+    setHasValue(Boolean(event.currentTarget.value));
+    props.onChange?.(event);
+  };
+
+  const handleClearClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+    event.preventDefault();
+
+    const inputElement = containerRef.current?.querySelector("input");
+
+    if (inputElement) {
+      inputElement.value = "";
+      setHasValue(false);
+    }
   };
 
   return (
     <ParentContainer layout>
       {label && <LabelContainer>{label}</LabelContainer>}
-      <InputContainer>
+      <InputContainer ref={containerRef}>
         {leadingIcon && (
           <LeadingIconContainer>{leadingIcon}</LeadingIconContainer>
         )}
         <StyledInput
-          $transparent={transparent}
           ref={ref}
           {...rest}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          onChange={handleChange}
         />
+        <CloseButton
+          variant="borderless"
+          onClick={handleClearClick}
+          disabled={!hasValue}
+          transition={{ duration: 0.2 }}
+          animate={{ opacity: hasValue ? 1 : 0 }}
+        >
+          <AiFillCloseCircle />
+        </CloseButton>
       </InputContainer>
     </ParentContainer>
   );
