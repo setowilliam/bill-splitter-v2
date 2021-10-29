@@ -7,8 +7,8 @@ import { useRouter } from "next/dist/client/router";
 import { itemsAtom, peopleAtom } from "@atoms";
 import { globalScope } from "utils/constants";
 import { getResults } from "utils/functions";
-import { CardContainer } from "@global-components";
 import { ResultCard, TotalCard } from "page-components/results";
+import { Title } from "@page-components";
 
 const Results: NextPage = () => {
   const [items] = useAtom(itemsAtom, globalScope);
@@ -24,15 +24,16 @@ const Results: NextPage = () => {
   const results = getResults(items, people);
 
   return (
-    <AnimateSharedLayout>
-      <CardContainer header="Results" open={true}>
+    <>
+      <Title>Title</Title>
+      <AnimateSharedLayout>
         {Object.values(results).map((result) => {
           return <ResultCard key={result.personId} result={result} />;
         })}
-      </CardContainer>
-      <motion.hr layout />
-      <TotalCard items={items} />
-    </AnimateSharedLayout>
+        <motion.hr layout />
+        <TotalCard items={items} />
+      </AnimateSharedLayout>
+    </>
   );
 };
 
