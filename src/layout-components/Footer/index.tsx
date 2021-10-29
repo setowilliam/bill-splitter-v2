@@ -5,6 +5,7 @@ import AddButton from "./AddButton";
 import CalculateButton from "./CalculateButton";
 import DoneButton from "./DoneButton";
 import { FooterContainer } from "./styles";
+import { fadeVariants } from "./utils";
 
 type FooterProps = {};
 
@@ -15,10 +16,11 @@ const Footer: FC<FooterProps> = (props) => {
   return (
     <AnimatePresence>
       <FooterContainer
-        transition={{ bounce: 0 }}
-        initial={{ y: "100%" }}
-        animate={{ y: 0 }}
-        exit={{ y: "100%" }}
+        key={router.pathname}
+        variants={fadeVariants}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
       >
         {router.pathname === "/" && (
           <>
