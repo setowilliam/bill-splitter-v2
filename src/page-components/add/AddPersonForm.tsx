@@ -42,7 +42,7 @@ const AddPersonForm: FC<AddPersonFormProps> = (props) => {
         label="Name"
         leadingIcon={<IoPersonCircleSharp />}
         value={name}
-        setValue={(value) => setValue("person", value as string)}
+        setValue={(value) => setValue("person", value)}
       />
     </AddForm>
   );
