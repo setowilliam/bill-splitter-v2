@@ -15,7 +15,7 @@ const Welcome: FC<WelcomeProps> = (props) => {
     >
       <h2>Welcome to Bill Splitter</h2>
       <p>
-        Start by adding a new item or person by clicking the <b>Add</b> button.
+        Start by adding a new item or person by clicking <b>Add</b>.
       </p>
     </WelcomeContainer>
   );

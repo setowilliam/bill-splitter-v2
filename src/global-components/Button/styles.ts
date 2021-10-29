@@ -23,6 +23,15 @@ export const StyledButton = styled(motion.button)<ButtonProps>`
           border: none;
           box-shadow: none;
         `;
+      case "primary":
+        return css`
+          border: none;
+          box-shadow: none;
+          background-color: transparent;
+          color: rgb(0, 122, 255);
+          font-weight: bold;
+          font-size: 1.2rem;
+        `;
       default:
         return;
     }

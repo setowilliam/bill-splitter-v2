@@ -1,8 +1,8 @@
 import { FC, FormEventHandler, ReactNode } from "react";
 
-import { Button, Card } from "@global-components";
+import { Card } from "@global-components";
 
-import { StyledForm } from "./styles";
+import { StyledButton, StyledForm } from "./styles";
 import Header from "./Header";
 
 type AddFormProps = {
@@ -31,7 +31,9 @@ const AddForm: FC<AddFormProps> = (props) => {
         exit={{ opacity: 0 }}
       >
         {children}
-        <Button disabled={disabled}>Add</Button>
+        <StyledButton disabled={disabled}>
+          Add
+        </StyledButton>
       </StyledForm>
     </Card>
   );

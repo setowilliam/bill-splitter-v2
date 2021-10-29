@@ -22,4 +22,8 @@ export const WelcomeContainer = styled(motion.div)`
     font-size: 1.5rem;
     font-weight: bold;
   }
+
+  p {
+    font-size: 0.9rem;
+  }
 `;

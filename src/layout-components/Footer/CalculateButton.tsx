@@ -1,10 +1,11 @@
 import { FC } from "react";
-
 import { useRouter } from "next/dist/client/router";
 import { useAtom } from "jotai";
+
+import { Button } from "@global-components";
 import { itemsAtom, peopleAtom } from "@atoms";
+
 import { globalScope } from "utils/constants";
-import { StyledButton } from "./styles";
 
 const CalculateButton: FC = () => {
   const router = useRouter();
@@ -12,14 +13,14 @@ const CalculateButton: FC = () => {
   const [people] = useAtom(peopleAtom, globalScope);
 
   return (
-    <StyledButton
+    <Button
       layout
       onClick={() => router.push("/results")}
       disabled={!(items.length && people.length)}
-      variant="borderless"
+      variant="primary"
     >
       Calculate
-    </StyledButton>
+    </Button>
   );
 };
 

@@ -1,3 +1,4 @@
+import { Button } from "@global-components";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
@@ -20,4 +21,8 @@ export const HeaderContainer = styled.div`
   .icon {
     font-size: 1rem;
   }
+`;
+
+export const StyledButton = styled(Button)`
+  padding: 0.5rem 1rem;
 `;

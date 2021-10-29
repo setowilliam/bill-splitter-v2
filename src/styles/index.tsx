@@ -15,6 +15,7 @@ export const GlobalStyles = createGlobalStyle`
   #__next {
     height: 100%;
     overflow: hidden;
+    background-color: ${(props) => props.theme.background};
   }
 
   a {
