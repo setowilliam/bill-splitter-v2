@@ -8,7 +8,8 @@ export const AssignContainer = styled.div`
 `;
 
 export const StyledCard = styled(Card)`
-  background-color: #ededed;
+  /* background-color: #ededed; */
+  background-color: ${(props) => props.theme.card};
 `;
 
 export const StyledBody = styled.div`

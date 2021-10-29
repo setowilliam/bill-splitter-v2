@@ -8,7 +8,7 @@ export const NavBarContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   z-index: 3;
-  background-color: white;
+  background-color: ${(props) => props.theme.background};
   border-bottom: 1px solid lightgray;
 
   .menu-icon {

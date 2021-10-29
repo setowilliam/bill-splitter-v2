@@ -10,11 +10,10 @@ export const MenuContainer = styled(motion.div)`
   gap: 1rem;
   height: fit-content;
 
-  background: rgba(255, 255, 255, 0.8);
+  background-color: ${(props) => props.theme.background};
   box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 2;
 `;
 

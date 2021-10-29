@@ -25,7 +25,7 @@ export const CheckboxContainer = styled(motion.label)<{ $checked: boolean }>`
     justify-content: ${(props) => (props.$checked ? "flex-end" : "flex-start")};
 
     .toggle {
-      background-color: white;
+      background-color: ${(props) => props.theme.background};
       height: 1.5rem;
       width: 1.5rem;
       border-radius: 1rem;

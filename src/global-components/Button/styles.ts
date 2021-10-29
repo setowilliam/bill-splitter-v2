@@ -4,8 +4,8 @@ import styled, { css } from "styled-components";
 import { ButtonProps } from "./typings";
 
 export const StyledButton = styled(motion.button)<ButtonProps>`
-  background-color: white;
-  border: 1px solid lightgray;
+  background-color: ${(props) => props.theme.background};
+  border: 1px solid ${(props) => props.theme.border};
   border-radius: 0.5rem;
   padding: 1rem;
   white-space: nowrap;

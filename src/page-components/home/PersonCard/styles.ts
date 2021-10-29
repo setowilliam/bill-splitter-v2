@@ -23,7 +23,8 @@ export const HeaderContainer = styled(motion.div)`
 `;
 
 export const StyledCard = styled(Card)`
-  background-color: #ededed;
+  /* background-color: #ededed; */
+  background-color: ${(props) => props.theme.card};
 `;
 
 export const StyledBody = styled.div`

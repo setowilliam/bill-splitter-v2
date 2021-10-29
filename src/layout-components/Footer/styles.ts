@@ -11,9 +11,8 @@ export const FooterContainer = styled(motion.div)`
   align-items: center;
   justify-content: space-between;
 
-  background: rgba(255, 255, 255, 0.6);
+  background-color: ${(props) => props.theme.background};
   backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
 `;
 
 export const StyledButton = styled(Button)`

@@ -9,3 +9,4 @@ export const tipAtom = atom(0);
 export const footerAtom = atom(false);
 export const inputAtom = atom(false);
 export const menuAtom = atom(false);
+export const themeAtom = atom<"light" | "dark">("light");
