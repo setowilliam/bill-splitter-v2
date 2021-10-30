@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
+export const ParentContainer = styled(motion.div)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+`;
+
 export const CheckboxContainer = styled(motion.label)<{ $checked: boolean }>`
   display: grid;
   grid-template-columns: auto auto;

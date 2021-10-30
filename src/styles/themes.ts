@@ -13,7 +13,7 @@ export const darkTheme: DefaultTheme = {
   background: "#000",
   text: "#fff",
   border: "#ececec",
-  card: "#5a5a5a",
-  card2: "#3e3e3e",
+  card: "#4a4a4a",
+  card2: "#3a3a3a",
   card3: "#2a2a2a",
 };

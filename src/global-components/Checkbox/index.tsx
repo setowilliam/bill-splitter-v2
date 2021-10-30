@@ -7,7 +7,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { CheckboxContainer } from "./styles";
+import { CheckboxContainer, ParentContainer } from "./styles";
 
 type CheckboxProps = HTMLProps<HTMLInputElement> & {
   label?: ReactNode;
@@ -27,21 +27,23 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
   }, [rest.checked]);
 
   return (
-    <CheckboxContainer layout $checked={checked}>
-      <input ref={ref} type="checkbox" {...rest} onChange={handleChange} />
-      <motion.div
-        className="switch"
-        layout
-        animate={{ backgroundColor: checked ? "#77dd77" : "#cfcfcf" }}
-      >
-        <motion.div className="toggle" layout />
-      </motion.div>
+    <ParentContainer layout>
       {label && (
         <motion.span className="text" layout>
           {label}
         </motion.span>
       )}
-    </CheckboxContainer>
+      <CheckboxContainer layout $checked={checked}>
+        <input ref={ref} type="checkbox" {...rest} onChange={handleChange} />
+        <motion.div
+          className="switch"
+          layout
+          animate={{ backgroundColor: checked ? "#77dd77" : "#cfcfcf" }}
+        >
+          <motion.div className="toggle" layout />
+        </motion.div>
+      </CheckboxContainer>
+    </ParentContainer>
   );
 });
 
