@@ -9,6 +9,7 @@ import { Input } from "@global-components";
 
 import { globalScope } from "utils/constants";
 import AddForm from "./AddForm";
+import { toast } from "react-toastify";
 
 type AddPersonFormProps = {
   onSubmit?: () => void;
@@ -19,6 +20,8 @@ const AddPersonForm: FC<AddPersonFormProps> = (props) => {
   const [people, setPeople] = useAtom(peopleAtom, globalScope);
   const { register, handleSubmit, reset, watch, setValue } =
     useForm<{ person: string }>();
+  const notify = (person: string) =>
+    toast(`${person} added!`, { type: "success" });
 
   const name = watch("person");
 
@@ -28,6 +31,7 @@ const AddPersonForm: FC<AddPersonFormProps> = (props) => {
 
     setPeople([...people, { name: person, personId, items: [] }]);
     reset();
+    notify(person);
     onSubmitCallback?.();
   };
 

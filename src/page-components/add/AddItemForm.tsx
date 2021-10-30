@@ -10,6 +10,7 @@ import { itemsAtom } from "@atoms";
 import { globalScope } from "utils/constants";
 import { ItemType } from "utils/typings";
 import AddForm from "./AddForm";
+import { toast } from "react-toastify";
 
 type AddItemFormProps = {
   onSubmit?: () => void;
@@ -20,6 +21,7 @@ const AddItemForm: FC<AddItemFormProps> = (props) => {
   const [items, setItems] = useAtom(itemsAtom, globalScope);
   const { register, handleSubmit, reset, watch, setValue } =
     useForm<Pick<ItemType, "item" | "price">>();
+  const notify = (item: string) => toast(`${item} added!`, { type: "success" });
 
   const item = watch("item");
   const price = watch("price");
@@ -29,6 +31,7 @@ const AddItemForm: FC<AddItemFormProps> = (props) => {
     const itemId = nanoid();
     setItems([...items, { item, price, itemId, people: [] }]);
     reset();
+    notify(item);
     onSubmitCallback?.();
   };
 

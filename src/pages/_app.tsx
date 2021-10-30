@@ -15,6 +15,8 @@ import { GlobalStyles } from "styles";
 import { useAtom } from "jotai";
 import { themeAtom } from "@atoms";
 import { globalScope, THEME_MAPPING } from "utils/constants";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -23,6 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={THEME_MAPPING[theme]}>
       <GlobalStyles />
+      <ToastContainer />
       <PageLayout>
         <NavBar />
         <Menu />
