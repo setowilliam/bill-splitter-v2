@@ -19,8 +19,8 @@ const Home: NextPage = () => {
   return (
     <>
       <AnimateSharedLayout>
+        <AnimatePresence>{showWelcome && <Welcome />}</AnimatePresence>
         <AnimatePresence>
-          {showWelcome && <Welcome />}
           {Boolean(people.length) && (
             <Title
               layout
