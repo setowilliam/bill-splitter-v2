@@ -16,14 +16,16 @@ const Fees: NextPage = () => {
         <Title layout>Fees</Title>
         <Input
           label="Tax"
-          type="decimal"
+          type="number"
+          inputMode="decimal"
           defaultValue={tax}
           leadingIcon="%"
           onChange={(event) => setTax(parseFloat(event.currentTarget.value))}
         />
         <Input
           label="Tip"
-          type="decimal"
+          type="number"
+          inputMode="decimal"
           defaultValue={tip}
           leadingIcon="%"
           onChange={(event) => setTip(parseFloat(event.currentTarget.value))}
