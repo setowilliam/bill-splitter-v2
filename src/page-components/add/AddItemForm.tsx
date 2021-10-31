@@ -56,7 +56,7 @@ const AddItemForm: FC<AddItemFormProps> = (props) => {
         step=".01"
         inputMode="decimal"
         value={price}
-        setValue={(value) => setValue("price", parseInt(value))}
+        setValue={(value) => setValue("price", parseFloat(value))}
       />
     </AddForm>
   );
