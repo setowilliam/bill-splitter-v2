@@ -4,10 +4,12 @@ import { NextPage } from "next";
 
 const Add: NextPage = () => {
   return (
-    <AnimateSharedLayout>
-      <AddPersonForm />
-      <AddItemForm />
-    </AnimateSharedLayout>
+    <div className="full-page">
+      <AnimateSharedLayout>
+        <AddPersonForm />
+        <AddItemForm />
+      </AnimateSharedLayout>
+    </div>
   );
 };
 

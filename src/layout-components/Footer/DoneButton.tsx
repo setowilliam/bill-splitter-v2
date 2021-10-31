@@ -3,11 +3,16 @@ import { FC } from "react";
 
 import { Button } from "@global-components";
 
-const DoneButton: FC = () => {
+type DoneButtonProps = {
+  route?: string;
+};
+
+const DoneButton: FC<DoneButtonProps> = (props) => {
+  const { route = "/" } = props;
   const router = useRouter();
 
   return (
-    <Button variant="primary" onClick={() => router.push("/")}>
+    <Button variant="primary" onClick={() => router.push(route)}>
       Done
     </Button>
   );

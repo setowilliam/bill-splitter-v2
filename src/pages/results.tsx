@@ -24,16 +24,16 @@ const Results: NextPage = () => {
   const results = getResults(items, people);
 
   return (
-    <>
-      <Title>Results</Title>
+    <div className="full-page">
       <AnimateSharedLayout>
+        <Title layout>Results</Title>
         {Object.values(results).map((result) => {
           return <ResultCard key={result.personId} result={result} />;
         })}
         <motion.hr layout />
         <TotalCard items={items} />
       </AnimateSharedLayout>
-    </>
+    </div>
   );
 };
 

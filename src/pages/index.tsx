@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   const showWelcome = !(items.length || people.length);
 
   return (
-    <>
+    <div className="full-page">
       <AnimateSharedLayout>
         <AnimatePresence>{showWelcome && <Welcome />}</AnimatePresence>
         <AnimatePresence>
@@ -56,7 +56,7 @@ const Home: NextPage = () => {
           ))}
         </AnimatePresence>
       </AnimateSharedLayout>
-    </>
+    </div>
   );
 };
 

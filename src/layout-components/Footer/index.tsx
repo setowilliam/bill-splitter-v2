@@ -5,6 +5,7 @@ import { fadeVariants } from "utils/animations";
 import AddButton from "./AddButton";
 import CalculateButton from "./CalculateButton";
 import DoneButton from "./DoneButton";
+import FeesButton from "./FeesButton";
 import { FooterContainer } from "./styles";
 
 type FooterProps = {};
@@ -31,8 +32,14 @@ const Footer: FC<FooterProps> = (props) => {
         {router.pathname === "/add" && <DoneButton />}
         {router.pathname === "/results" && (
           <>
-            <div />
             <DoneButton />
+            <FeesButton />
+          </>
+        )}
+        {router.pathname === "/fees" && (
+          <>
+            <DoneButton route="/results" />
+            <div />
           </>
         )}
       </FooterContainer>
