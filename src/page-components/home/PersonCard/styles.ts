@@ -1,4 +1,3 @@
-import { Card } from "@global-components";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
@@ -20,19 +19,4 @@ export const HeaderContainer = styled(motion.div)`
       grid-area: icon;
     }
   }
-`;
-
-export const StyledCard = styled(Card)`
-  background-color: ${(props) => props.theme.card2};
-
-  > div {
-    background-color: ${(props) => props.theme.card2};
-  }
-`;
-
-export const StyledBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: flex-start;
 `;
