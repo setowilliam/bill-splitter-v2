@@ -21,7 +21,7 @@ const Body: FC<BodyProps> = (props) => {
         <span>Subtotal</span>
         <span>{formatMoney(total)}</span>
       </LineContainer>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence>
         {Boolean(tax) && (
           <LineContainer
             layout
@@ -35,7 +35,7 @@ const Body: FC<BodyProps> = (props) => {
           </LineContainer>
         )}
       </AnimatePresence>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence>
         {Boolean(tip) && (
           <LineContainer
             layout
