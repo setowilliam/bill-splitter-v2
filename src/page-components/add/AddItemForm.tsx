@@ -49,40 +49,38 @@ const AddItemForm: FC<AddItemFormProps> = (props) => {
   const [addState] = useAtom(addAtom);
 
   return (
-    <AnimatePresence>
-      {(addState === "items" || addState === null) && (
-        <AddForm
-          header={
-            <span>
-              <MdFastfood className="icon" />
-              New Item
-            </span>
-          }
-          onSubmit={handleSubmit(onSubmit)}
-          disabled={!Boolean(item && price)}
-          name="items"
-          open={addState === "items"}
-        >
-          <Input
-            {...register("item")}
-            label="Item"
-            leadingIcon={<MdFastfood />}
-            value={item}
-            setValue={(value) => setValue("item", value)}
-          />
-          <Input
-            {...register("price", { valueAsNumber: true })}
-            label="Price"
-            leadingIcon="$"
-            type="number"
-            step=".01"
-            inputMode="decimal"
-            value={price}
-            setValue={(value) => setValue("price", parseFloat(value))}
-          />
-        </AddForm>
-      )}
-    </AnimatePresence>
+    <AddForm
+      header={
+        <span>
+          <MdFastfood className="icon" />
+          New Item
+        </span>
+      }
+      onSubmit={handleSubmit(onSubmit)}
+      disabled={!Boolean(item && price)}
+      name="items"
+      open={addState === "items"}
+    >
+      <Input
+        {...register("item")}
+        label="Item"
+        leadingIcon={<MdFastfood />}
+        value={item}
+        setValue={(value) => setValue("item", value)}
+        disabled={addState !== "items"}
+      />
+      <Input
+        {...register("price", { valueAsNumber: true })}
+        label="Price"
+        leadingIcon="$"
+        type="number"
+        step=".01"
+        inputMode="decimal"
+        value={price}
+        setValue={(value) => setValue("price", parseFloat(value))}
+        disabled={addState !== "items"}
+      />
+    </AddForm>
   );
 };
 

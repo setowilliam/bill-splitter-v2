@@ -48,30 +48,27 @@ const AddPersonForm: FC<AddPersonFormProps> = (props) => {
   const [addState] = useAtom(addAtom);
 
   return (
-    <AnimatePresence>
-      {(addState === "people" || addState === null) && (
-        <AddForm
-          header={
-            <span>
-              <IoPersonCircleSharp className="icon" />
-              New Person
-            </span>
-          }
-          onSubmit={handleSubmit(onSubmit)}
-          disabled={!Boolean(name)}
-          name="people"
-          open={addState === "people"}
-        >
-          <Input
-            {...register("person")}
-            label="Name"
-            leadingIcon={<IoPersonCircleSharp />}
-            value={name}
-            setValue={(value) => setValue("person", value)}
-          />
-        </AddForm>
-      )}
-    </AnimatePresence>
+    <AddForm
+      header={
+        <span>
+          <IoPersonCircleSharp className="icon" />
+          New Person
+        </span>
+      }
+      onSubmit={handleSubmit(onSubmit)}
+      disabled={!Boolean(name)}
+      name="people"
+      open={addState === "people"}
+    >
+      <Input
+        {...register("person")}
+        label="Name"
+        leadingIcon={<IoPersonCircleSharp />}
+        value={name}
+        setValue={(value) => setValue("person", value)}
+        disabled={addState !== "people"}
+      />
+    </AddForm>
   );
 };
 
