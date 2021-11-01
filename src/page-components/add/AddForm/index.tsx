@@ -6,7 +6,8 @@ import { StyledButton, StyledForm } from "./styles";
 import Header from "./Header";
 import { useAtom } from "jotai";
 import { addAtom } from "../utils";
-import { IoClose } from "react-icons/io5";
+import { FaChevronDown } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 type AddFormProps = {
   disabled?: boolean;
@@ -42,7 +43,11 @@ const AddForm: FC<AddFormProps> = (props) => {
       header={
         <Header>
           {header}
-          {open && <IoClose className="icon" />}
+          <motion.div
+            animate={{ rotate: open ? 180 : 0, transition: { bounce: 0 } }}
+          >
+            <FaChevronDown />
+          </motion.div>
         </Header>
       }
       open={open}
