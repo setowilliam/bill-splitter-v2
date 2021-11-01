@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { nanoid } from "nanoid";
 import { IoPersonCircleSharp } from "react-icons/io5";
 
-import { peopleAtom } from "@atoms";
+import { peopleAtom, themeAtom } from "@atoms";
 import { Input } from "@global-components";
 
 import { globalScope } from "utils/constants";
@@ -22,8 +22,9 @@ const AddPersonForm: FC<AddPersonFormProps> = (props) => {
   const [people, setPeople] = useAtom(peopleAtom, globalScope);
   const { register, handleSubmit, reset, watch, setValue } =
     useForm<{ person: string }>();
+  const [theme] = useAtom(themeAtom, globalScope);
   const notify = (person: string) =>
-    toast(`${person} added!`, { type: "success" });
+    toast(`${person} added!`, { type: "success", theme });
 
   const name = watch("person");
 
