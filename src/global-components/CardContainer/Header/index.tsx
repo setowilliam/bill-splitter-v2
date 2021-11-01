@@ -1,17 +1,13 @@
 import { FC } from "react";
-import { useAtom } from "jotai";
 import { FiChevronUp } from "react-icons/fi";
 import { motion } from "framer-motion";
 
-import { toggleAtom } from "@atoms";
-
 import { HeaderContainer } from "./styles";
 
-type HeaderProps = {};
+type HeaderProps = { open?: boolean };
 
 const Header: FC<HeaderProps> = (props) => {
-  const { children } = props;
-  const [open] = useAtom(toggleAtom);
+  const { children, open } = props;
 
   return (
     <HeaderContainer>

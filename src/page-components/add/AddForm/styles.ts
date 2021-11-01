@@ -16,10 +16,17 @@ export const StyledForm = styled(motion.form)`
 export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
   gap: 0.25rem;
 
+  span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
   .icon {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 `;
 

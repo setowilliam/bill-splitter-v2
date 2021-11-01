@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useState } from "react";
 import { AnimatePresence, HTMLMotionProps } from "framer-motion";
 
 import { Card } from "@global-components";
@@ -8,19 +8,22 @@ import Header from "./Header";
 
 type CardContainerProps = HTMLMotionProps<"div"> & {
   header?: ReactNode;
-  open?: boolean;
+  defaultOpen?: boolean;
 };
 
 const CardContainer: FC<CardContainerProps> = (props) => {
-  const { children, header, open, ...rest } = props;
+  const { children, header, defaultOpen, ...rest } = props;
+
+  const [open, setOpen] = useState(defaultOpen);
 
   return (
     <Card
-      header={<Header>{header}</Header>}
+      header={<Header open={open}>{header}</Header>}
       initial={{ opacity: 0, borderRadius: "0.5rem" }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       open={open}
+      onToggle={(open) => setOpen(open)}
       {...rest}
     >
       <ContentContainer>

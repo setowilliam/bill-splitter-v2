@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 
 import { toggleAtom } from "@atoms";
 
@@ -10,16 +10,18 @@ import { CardContainer } from "./styles";
 import { CardProps } from "./typings";
 
 const Content: FC<CardProps> = (props) => {
-  const { header, footer, children, borderless, open, disabled, ...rest } =
-    props;
+  const {
+    header,
+    footer,
+    children,
+    borderless,
+    open,
+    disabled,
+    onToggle,
+    ...rest
+  } = props;
   const [headerRef, setHeaderRef] = useState<HTMLButtonElement | null>(null);
-  const [closed, setClosed] = useAtom(toggleAtom);
-
-  useEffect(() => {
-    if (open !== undefined) {
-      setClosed(!open);
-    }
-  }, [open, setClosed]);
+  const [closed] = useAtom(toggleAtom);
 
   return (
     <CardContainer
@@ -28,13 +30,18 @@ const Content: FC<CardProps> = (props) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       style={{
-        height: closed ? headerRef?.clientHeight || "auto" : "auto",
-        width: closed ? headerRef?.clientWidth || "auto" : "100%",
+        height: !open && closed ? headerRef?.clientHeight || "auto" : "auto",
+        width: !open && closed ? headerRef?.clientWidth || "auto" : "100%",
       }}
       $borderless={borderless}
       {...rest}
     >
-      <CardHeader ref={(node) => setHeaderRef(node)} disabled={disabled}>
+      <CardHeader
+        ref={(node) => setHeaderRef(node)}
+        disabled={disabled}
+        onToggle={onToggle}
+        open={open}
+      >
         {header}
       </CardHeader>
       {headerRef && (

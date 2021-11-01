@@ -15,7 +15,7 @@ const AssignForm: FC<AssignFormProps> = (props) => {
     <StyledCardContainer
       className="assign"
       header={<HeaderContainer>{header}</HeaderContainer>}
-      open={true}
+      defaultOpen={true}
     >
       <CheckboxContainer layout>{children}</CheckboxContainer>
     </StyledCardContainer>

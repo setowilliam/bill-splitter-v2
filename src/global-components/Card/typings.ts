@@ -8,4 +8,5 @@ export type CardProps = HTMLMotionProps<"div"> & {
   id?: string;
   open?: boolean;
   disabled?: boolean;
+  onToggle?: (open: boolean) => void;
 };

@@ -10,6 +10,8 @@ import { Input } from "@global-components";
 import { globalScope } from "utils/constants";
 import AddForm from "./AddForm";
 import { toast } from "react-toastify";
+import { addAtom } from "./utils";
+import { AnimatePresence } from "framer-motion";
 
 type AddPersonFormProps = {
   onSubmit?: () => void;
@@ -35,20 +37,33 @@ const AddPersonForm: FC<AddPersonFormProps> = (props) => {
     onSubmitCallback?.();
   };
 
+  const [addState] = useAtom(addAtom);
+
   return (
-    <AddForm
-      header="New Person"
-      onSubmit={handleSubmit(onSubmit)}
-      disabled={!Boolean(name)}
-    >
-      <Input
-        {...register("person")}
-        label="Name"
-        leadingIcon={<IoPersonCircleSharp />}
-        value={name}
-        setValue={(value) => setValue("person", value)}
-      />
-    </AddForm>
+    <AnimatePresence>
+      {(addState === "people" || addState === null) && (
+        <AddForm
+          header={
+            <span>
+              <IoPersonCircleSharp className="icon" />
+              New Person
+            </span>
+          }
+          onSubmit={handleSubmit(onSubmit)}
+          disabled={!Boolean(name)}
+          name="people"
+          open={addState === "people"}
+        >
+          <Input
+            {...register("person")}
+            label="Name"
+            leadingIcon={<IoPersonCircleSharp />}
+            value={name}
+            setValue={(value) => setValue("person", value)}
+          />
+        </AddForm>
+      )}
+    </AnimatePresence>
   );
 };
 

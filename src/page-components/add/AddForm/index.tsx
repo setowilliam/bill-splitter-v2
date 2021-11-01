@@ -4,15 +4,20 @@ import { Card } from "@global-components";
 
 import { StyledButton, StyledForm } from "./styles";
 import Header from "./Header";
+import { useAtom } from "jotai";
+import { addAtom } from "../utils";
+import { IoClose } from "react-icons/io5";
 
 type AddFormProps = {
   disabled?: boolean;
   onSubmit?: FormEventHandler<HTMLFormElement>;
   header: ReactNode;
+  open?: boolean;
+  name: "items" | "people";
 };
 
 const AddForm: FC<AddFormProps> = (props) => {
-  const { disabled, onSubmit, header, children } = props;
+  const { disabled, onSubmit, header, children, open, name } = props;
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     if (disabled) {
@@ -21,8 +26,28 @@ const AddForm: FC<AddFormProps> = (props) => {
       onSubmit?.(event);
     }
   };
+
+  const [, setAddState] = useAtom(addAtom);
+
+  const handleToggle = (open: boolean) => {
+    if (open) {
+      setAddState(name);
+    } else {
+      setAddState(null);
+    }
+  };
+
   return (
-    <Card header={<Header>{header}</Header>}>
+    <Card
+      header={
+        <Header>
+          {header}
+          {open && <IoClose className="icon" />}
+        </Header>
+      }
+      open={open}
+      onToggle={handleToggle}
+    >
       <StyledForm
         layout
         onSubmit={handleSubmit}
@@ -31,9 +56,7 @@ const AddForm: FC<AddFormProps> = (props) => {
         exit={{ opacity: 0 }}
       >
         {children}
-        <StyledButton disabled={disabled}>
-          Add
-        </StyledButton>
+        <StyledButton disabled={disabled}>Add</StyledButton>
       </StyledForm>
     </Card>
   );
