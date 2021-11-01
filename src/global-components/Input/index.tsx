@@ -42,11 +42,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
       // scrollTop.current = setTimeout(() => {
       //   window.scrollTo({ top: 0, behavior: "smooth" });
       // }, 100);
-      window.addEventListener("scroll", scrollToTop);
+      // window.addEventListener("scroll", scrollToTop);
     } else {
       // scrollTop.current && clearTimeout(scrollTop.current);
       // scrollTop.current = null;
-      window.removeEventListener("scroll", scrollToTop);
+      // window.removeEventListener("scroll", scrollToTop);
     }
   }, [inputFocus]);
 
