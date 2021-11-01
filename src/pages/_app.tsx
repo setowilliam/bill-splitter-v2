@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={THEME_MAPPING[theme]}>
       <GlobalStyles />
-      <ToastContainer />
+      <ToastContainer limit={1} />
       <PageLayout>
         <NavBar />
         <Menu />

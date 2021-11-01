@@ -9,7 +9,7 @@ import { Input } from "@global-components";
 
 import { globalScope } from "utils/constants";
 import AddForm from "./AddForm";
-import { toast } from "react-toastify";
+import { Slide, toast } from "react-toastify";
 import { addAtom } from "./utils";
 import { AnimatePresence } from "framer-motion";
 
@@ -24,7 +24,14 @@ const AddPersonForm: FC<AddPersonFormProps> = (props) => {
     useForm<{ person: string }>();
   const [theme] = useAtom(themeAtom, globalScope);
   const notify = (person: string) =>
-    toast(`${person} added!`, { type: "success", theme });
+    toast(`${person} added!`, {
+      type: "success",
+      theme,
+      pauseOnFocusLoss: false,
+      transition: Slide,
+      autoClose: 3000,
+      hideProgressBar: true,
+    });
 
   const name = watch("person");
 

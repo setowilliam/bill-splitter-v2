@@ -10,7 +10,7 @@ import { itemsAtom, themeAtom } from "@atoms";
 import { globalScope } from "utils/constants";
 import { ItemType } from "utils/typings";
 import AddForm from "./AddForm";
-import { toast } from "react-toastify";
+import { Slide, toast } from "react-toastify";
 import { addAtom } from "./utils";
 import { AnimatePresence } from "framer-motion";
 
@@ -25,7 +25,14 @@ const AddItemForm: FC<AddItemFormProps> = (props) => {
     useForm<Pick<ItemType, "item" | "price">>();
   const [theme] = useAtom(themeAtom, globalScope);
   const notify = (item: string) =>
-    toast(`${item} added!`, { type: "success", theme });
+    toast(`${item} added!`, {
+      type: "success",
+      theme,
+      pauseOnFocusLoss: false,
+      transition: Slide,
+      autoClose: 3000,
+      hideProgressBar: true,
+    });
 
   const item = watch("item");
   const price = watch("price");
