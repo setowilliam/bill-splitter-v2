@@ -12,6 +12,7 @@ import {
   useState,
 } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { scrollToTop } from "utils/functions";
 import {
   CloseButton,
   InputContainer,
@@ -38,12 +39,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 
   useEffect(() => {
     if (!inputFocus) {
-      scrollTop.current = setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 100);
+      // scrollTop.current = setTimeout(() => {
+      //   window.scrollTo({ top: 0, behavior: "smooth" });
+      // }, 100);
+      window.addEventListener("scroll", scrollToTop);
     } else {
-      scrollTop.current && clearTimeout(scrollTop.current);
-      scrollTop.current = null;
+      // scrollTop.current && clearTimeout(scrollTop.current);
+      // scrollTop.current = null;
+      window.removeEventListener("scroll", scrollToTop);
     }
   }, [inputFocus]);
 

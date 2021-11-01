@@ -17,10 +17,20 @@ import { themeAtom } from "@atoms";
 import { globalScope, THEME_MAPPING } from "utils/constants";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { useEffect } from "react";
+import { scrollToTop } from "utils/functions";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const [theme] = useAtom(themeAtom, globalScope);
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollToTop);
+
+    return () => {
+      window.removeEventListener("scroll", scrollToTop);
+    };
+  }, []);
 
   return (
     <ThemeProvider theme={THEME_MAPPING[theme]}>
