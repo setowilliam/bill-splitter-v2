@@ -18,19 +18,26 @@ import { globalScope, THEME_MAPPING } from "utils/constants";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
-import { scrollToTop } from "utils/functions";
+
+const getHeight = () => {
+  document.documentElement.style.setProperty(
+    "--height",
+    `${window.innerHeight}px`
+  );
+};
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const [theme] = useAtom(themeAtom, globalScope);
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", scrollToTop);
+  useEffect(() => {
+    getHeight();
+    window.addEventListener("resize", getHeight);
 
-  //   return () => {
-  //     window.removeEventListener("scroll", scrollToTop);
-  //   };
-  // }, []);
+    return () => {
+      window.removeEventListener("resize", getHeight);
+    };
+  }, []);
 
   return (
     <ThemeProvider theme={THEME_MAPPING[theme]}>
