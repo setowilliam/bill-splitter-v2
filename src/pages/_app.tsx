@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <PageLayout>
         <NavBar />
         <Menu />
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
           <MainLayout key={router.pathname}>
             <Component {...pageProps} />
           </MainLayout>
