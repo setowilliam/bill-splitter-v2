@@ -6,7 +6,8 @@ export const FooterContainer = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  grid-area: footer;
+  position: fixed;
+  bottom: 0;
 
   background-color: ${(props) => props.theme.background};
   backdrop-filter: blur(4px);
