@@ -5,6 +5,7 @@ import formatMoney from "./formatMoney";
 import roundNumber from "./roundNumber";
 import includeTaxTip from "./includeTaxTip";
 import scrollToTop from "./scrollToTop";
+import setHeight from "./setHeight";
 
 export {
   getItem,
@@ -14,4 +15,5 @@ export {
   roundNumber,
   includeTaxTip,
   scrollToTop,
+  setHeight,
 };
