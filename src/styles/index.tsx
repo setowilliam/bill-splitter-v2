@@ -14,7 +14,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   #__next {
-    /* height: 100%; */
+    /* height: var(--height); */
+    height: 100%;
     /* height: var(--height); */
     /* background-color: ${(props) => props.theme.background}; */
   }

@@ -39,7 +39,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ToastContainer limit={1} />
       <PageLayout>
         <NavBar />
-        <Menu />
+        {/* <Menu /> */}
         <AnimatePresence exitBeforeEnter>
           <MainLayout key={router.pathname}>
             <Component {...pageProps} />
