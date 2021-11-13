@@ -4,10 +4,10 @@ import styled from "styled-components";
 export const MainLayoutContainer = styled(motion.main)`
   grid-area: main;
   overflow-y: scroll;
-  padding-bottom: 53px;
 
   > div {
     padding: 1rem;
+    padding-bottom: calc(53px + 3rem + 1rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
