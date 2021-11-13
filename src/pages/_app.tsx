@@ -24,13 +24,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const [theme] = useAtom(themeAtom, globalScope);
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", scrollToTop);
+  useEffect(() => {
+    window.addEventListener("scroll", scrollToTop);
 
-  //   return () => {
-  //     window.removeEventListener("scroll", scrollToTop);
-  //   };
-  // }, []);
+    return () => {
+      window.removeEventListener("scroll", scrollToTop);
+    };
+  }, []);
 
   return (
     <ThemeProvider theme={THEME_MAPPING[theme]}>

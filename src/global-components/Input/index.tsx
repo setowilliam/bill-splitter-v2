@@ -39,14 +39,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 
   useEffect(() => {
     if (!inputFocus) {
-      // scrollTop.current = setTimeout(() => {
-      //   window.scrollTo({ top: 0, behavior: "smooth" });
-      // }, 100);
-      // window.addEventListener("scroll", scrollToTop);
+      scrollTop.current = setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.addEventListener("scroll", scrollToTop);
+      }, 100);
     } else {
-      // scrollTop.current && clearTimeout(scrollTop.current);
-      // scrollTop.current = null;
-      // window.removeEventListener("scroll", scrollToTop);
+      scrollTop.current && clearTimeout(scrollTop.current);
+      scrollTop.current = null;
+      window.removeEventListener("scroll", scrollToTop);
     }
   }, [inputFocus]);
 
