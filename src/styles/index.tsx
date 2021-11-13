@@ -8,16 +8,8 @@ export const GlobalStyles = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     height: var(--height);
-    /* overflow: hidden; */
     position: relative;
     background-color: ${(props) => props.theme.background};
-  }
-
-  #__next {
-    /* height: var(--height); */
-    height: 100%;
-    /* height: var(--height); */
-    /* background-color: ${(props) => props.theme.background}; */
   }
 
   a {
