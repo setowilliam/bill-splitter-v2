@@ -10,6 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     height: var(--height);
     position: relative;
     background-color: ${(props) => props.theme.background};
+    overflow-x: hidden;
   }
 
   a {
