@@ -5,4 +5,8 @@ module.exports = {
     esmExternals: false,
   },
   swcMinify: true,
+  i18n: {
+    locales: ["en", "ja"],
+    defaultLocale: "en",
+  },
 };
