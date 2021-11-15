@@ -7,7 +7,7 @@ export const MainLayoutContainer = styled(motion.main)`
 
   > div {
     padding: 1rem;
-    padding-bottom: calc(53px + 3rem + 1rem);
+    padding-bottom: calc(53px + 6rem + 1rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
