@@ -12,6 +12,7 @@ const MainLayout: FC<MainLayoutProps> = (props) => {
 
   return (
     <MainLayoutContainer
+      layoutScroll
       variants={mainVariants}
       animate="neutral"
       initial={router.pathname === "/" ? "left" : "right"}
