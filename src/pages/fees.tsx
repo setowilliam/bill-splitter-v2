@@ -31,6 +31,7 @@ const Fees: NextPage = () => {
             type="number"
             inputMode="decimal"
             defaultValue={tax || ""}
+            value={tax || ""}
             leadingIcon="%"
             onChange={(event) => setTax(parseFloat(event.currentTarget.value))}
             width="2rem"
@@ -41,6 +42,7 @@ const Fees: NextPage = () => {
             type="number"
             inputMode="decimal"
             defaultValue={tip || ""}
+            value={tip || ""}
             leadingIcon={
               tipType === "fixed" ? (locale === "en" ? "$" : "￥") : "%"
             }
