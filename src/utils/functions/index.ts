@@ -3,7 +3,7 @@ import getPerson from "./getPerson";
 import getResults from "./getResults";
 import formatMoney from "./formatMoney";
 import roundNumber from "./roundNumber";
-import includeTaxTip from "./includeTaxTip";
+import getFees from "./getFees";
 import scrollToTop from "./scrollToTop";
 
 export {
@@ -12,6 +12,6 @@ export {
   getResults,
   formatMoney,
   roundNumber,
-  includeTaxTip,
+  getFees,
   scrollToTop,
 };

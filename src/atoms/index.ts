@@ -1,5 +1,5 @@
 import { atom } from "jotai";
-import { ItemType, PersonType } from "utils/typings";
+import { ItemType, PersonType, TipType } from "utils/typings";
 
 export const peopleAtom = atom<PersonType[]>([]);
 export const itemsAtom = atom<ItemType[]>([]);
@@ -10,3 +10,4 @@ export const footerAtom = atom(false);
 export const inputAtom = atom(false);
 export const menuAtom = atom(false);
 export const themeAtom = atom<"light" | "dark">("light");
+export const tipTypeAtom = atom<TipType>("before");

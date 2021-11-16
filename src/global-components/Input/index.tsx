@@ -30,7 +30,9 @@ type InputProps = Omit<HTMLProps<HTMLInputElement>, "ref" | "as"> & {
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const { leadingIcon, label, setValue, width, ...rest } = props;
-  const [hasValue, setHasValue] = useState(Boolean(rest.value));
+  const [hasValue, setHasValue] = useState(
+    Boolean(rest.value || typeof rest.defaultValue === "number")
+  );
 
   const [inputFocus, setInputFocus] = useAtom(inputAtom);
 
@@ -50,9 +52,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     }
   }, [inputFocus]);
 
-  useEffect(() => {
-    setHasValue(Boolean(rest.value));
-  }, [rest.value]);
+  // useEffect(() => {
+  //   setHasValue(Boolean(rest.value));
+  // }, [rest.value]);
 
   const handleBlur: FocusEventHandler<HTMLInputElement> = (event) => {
     setInputFocus(false);

@@ -2,9 +2,9 @@ import { FC } from "react";
 import { useAtom } from "jotai";
 import { motion } from "framer-motion";
 
-import { taxAtom, tipAtom } from "@atoms";
+import { taxAtom, tipAtom, tipTypeAtom } from "@atoms";
 import { globalScope } from "utils/constants";
-import { formatMoney, includeTaxTip, roundNumber } from "utils/functions";
+import { formatMoney, getFees, roundNumber } from "utils/functions";
 import { ResultItemType } from "utils/typings";
 import { useRouter } from "next/dist/client/router";
 
@@ -17,6 +17,7 @@ const Body: FC<BodyProps> = (props) => {
   const { resultItems, total } = props;
   const [tax] = useAtom(taxAtom, globalScope);
   const [tip] = useAtom(tipAtom, globalScope);
+  const [tipType] = useAtom(tipTypeAtom, globalScope);
   const { locale } = useRouter();
 
   return (
@@ -29,8 +30,10 @@ const Body: FC<BodyProps> = (props) => {
             1
           );
 
+          const fees = getFees(resultItem.splitPrice, tax, tip, tipType);
+
           const formattedPrice = formatMoney(
-            includeTaxTip(resultItem.splitPrice, tax, tip),
+            resultItem.splitPrice + fees.tax + fees.tip,
             locale
           );
 

@@ -17,3 +17,5 @@ export type ResultType = PersonType & {
   total: number;
   resultItems: Record<string, ResultItemType>;
 };
+
+export type TipType = "before" | "after" | "fixed";
