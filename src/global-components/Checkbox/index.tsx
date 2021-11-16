@@ -18,8 +18,10 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
   const [checked, setChecked] = useState(rest.checked || false);
 
   const handleChange: FormEventHandler<HTMLInputElement> = (event) => {
-    setChecked(event.currentTarget.checked);
     rest.onChange?.(event);
+    if (!rest.onChange) {
+      setChecked(event.currentTarget.checked);
+    }
   };
 
   useEffect(() => {
