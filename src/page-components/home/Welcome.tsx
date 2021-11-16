@@ -1,10 +1,12 @@
 import { FC } from "react";
+import useTranslation from "utils/hooks/useTranslation";
 import { WelcomeContainer } from "./styles";
 
 type WelcomeProps = {};
 
 const Welcome: FC<WelcomeProps> = (props) => {
   const {} = props;
+  const { pages } = useTranslation();
 
   return (
     <WelcomeContainer
@@ -13,10 +15,8 @@ const Welcome: FC<WelcomeProps> = (props) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <h2>Welcome to Bill Splitter</h2>
-      <p>
-        Start by adding a new item or person by clicking <b>Add</b>.
-      </p>
+      <h2>{pages.home.welcome.title}</h2>
+      {pages.home.welcome.description}
     </WelcomeContainer>
   );
 };
