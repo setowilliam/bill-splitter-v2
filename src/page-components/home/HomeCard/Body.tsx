@@ -6,22 +6,24 @@ import { Button } from "@global-components";
 
 import { AnimatePresence } from "framer-motion";
 import { StyledBody } from "./styles";
+import useTranslation from "utils/hooks/useTranslation";
 
 type BodyProps = { onDeleteClick?: () => void };
 
 const Body: FC<BodyProps> = (props) => {
   const { onDeleteClick, children } = props;
+  const { pages } = useTranslation();
 
   return (
     <StyledBody>
       <AnimatePresence>{children}</AnimatePresence>
       <Button layout variant="borderless">
         <RiEditFill />
-        Edit
+        {pages.home.edit}
       </Button>
       <Button layout variant="borderless" onClick={onDeleteClick}>
         <RiDeleteBin4Fill />
-        Delete
+        {pages.home.delete}
       </Button>
     </StyledBody>
   );

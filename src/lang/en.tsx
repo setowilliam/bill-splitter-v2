@@ -24,6 +24,17 @@ export const en: TranslationLibrary = {
           </p>
         ),
       },
+      people: {
+        title: "People",
+        assign: "Assign to people",
+      },
+      items: {
+        title: "Items",
+        assign: "Assign to items",
+        shared: "Shared",
+      },
+      edit: "Edit",
+      delete: "Delete",
     },
     add: {
       title: "Add People/Items",

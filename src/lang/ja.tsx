@@ -25,6 +25,17 @@ export const ja: TranslationLibrary = {
           </p>
         ),
       },
+      people: {
+        title: "人々",
+        assign: "人々に割り当てる",
+      },
+      items: {
+        title: "アイテム",
+        assign: "アイテムに割り当てる",
+        shared: "共有した",
+      },
+      edit: "編集する",
+      delete: "削除する",
     },
     add: {
       title: "人／アイテムを追加する",

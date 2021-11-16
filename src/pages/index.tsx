@@ -9,10 +9,12 @@ import { Title } from "@page-components";
 import { BsPeopleFill } from "react-icons/bs";
 import { MdFastfood } from "react-icons/md";
 import { fadeVariants } from "utils/animations";
+import useTranslation from "utils/hooks/useTranslation";
 
 const Home: NextPage = () => {
   const [items] = useAtom(itemsAtom, globalScope);
   const [people] = useAtom(peopleAtom, globalScope);
+  const { pages } = useTranslation();
 
   const showWelcome = !(items.length || people.length);
 
@@ -30,7 +32,7 @@ const Home: NextPage = () => {
               exit="hidden"
             >
               <BsPeopleFill className="icon" />
-              People
+              {pages.home.people.title}
             </Title>
           )}
           {people.map((person, index) => (
@@ -48,7 +50,7 @@ const Home: NextPage = () => {
               exit="hidden"
             >
               <MdFastfood className="icon" />
-              Items
+              {pages.home.items.title}
             </Title>
           )}
           {items.map((item, index) => (

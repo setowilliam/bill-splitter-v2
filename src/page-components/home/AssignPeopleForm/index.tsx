@@ -8,6 +8,7 @@ import { globalScope } from "utils/constants";
 import { getItem, getPerson } from "utils/functions";
 
 import AssignForm from "../AssignForm";
+import useTranslation from "utils/hooks/useTranslation";
 
 type AssignPeopleFormProps = {
   itemId: string;
@@ -18,6 +19,7 @@ const AssignPeopleForm: FC<AssignPeopleFormProps> = (props) => {
   const { itemId } = props;
   const [people, setPeople] = useAtom(peopleAtom, globalScope);
   const [items, setItems] = useAtom(itemsAtom, globalScope);
+  const { pages } = useTranslation();
 
   const handlePersonClick = (personId: string, checked: boolean) => {
     const targetPerson = getPerson(personId, people);
@@ -53,7 +55,7 @@ const AssignPeopleForm: FC<AssignPeopleFormProps> = (props) => {
       header={
         <>
           <BsPersonPlusFill />
-          Assign to people
+          {pages.home.people.assign}
         </>
       }
     >

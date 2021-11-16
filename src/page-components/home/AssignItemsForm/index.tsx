@@ -7,6 +7,7 @@ import { Checkbox } from "@global-components";
 import { globalScope } from "utils/constants";
 import { getItem, getPerson } from "utils/functions";
 import AssignForm from "../AssignForm";
+import useTranslation from "utils/hooks/useTranslation";
 
 type AssignItemsFormProps = {
   personId: string;
@@ -16,6 +17,7 @@ const AssignItemsForm: FC<AssignItemsFormProps> = (props) => {
   const { personId } = props;
   const [people, setPeople] = useAtom(peopleAtom, globalScope);
   const [items, setItems] = useAtom(itemsAtom, globalScope);
+  const { pages } = useTranslation();
 
   const handleItemClick = (itemId: string, checked: boolean) => {
     const targetPerson = getPerson(personId, people);
@@ -51,7 +53,7 @@ const AssignItemsForm: FC<AssignItemsFormProps> = (props) => {
       header={
         <>
           <MdFastfood />
-          Assign to items
+          {pages.home.items.assign}
         </>
       }
     >

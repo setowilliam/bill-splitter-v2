@@ -20,6 +20,17 @@ export type TranslationLibrary = {
         title: string;
         description: ReactNode;
       };
+      people: {
+        title: string;
+        assign: string;
+      };
+      items: {
+        title: string;
+        assign: string;
+        shared: string;
+      };
+      edit: string;
+      delete: string;
     };
     add: {
       title: string;
