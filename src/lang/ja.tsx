@@ -67,6 +67,10 @@ export const ja: TranslationLibrary = {
       title: "料金",
       tax: "税金",
       tip: "チップ",
+      tipOptions: "チップオプション",
+      beforeTax: "税金前（％）",
+      afterTax: "税金後（％）",
+      fixed: "一定（￥）",
     },
   },
 };

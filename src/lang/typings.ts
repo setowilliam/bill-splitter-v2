@@ -58,6 +58,10 @@ export type TranslationLibrary = {
       title: string;
       tax: string;
       tip: string;
+      tipOptions: string;
+      beforeTax: string;
+      afterTax: string;
+      fixed: string;
     };
   };
 };

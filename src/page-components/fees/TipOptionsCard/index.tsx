@@ -4,6 +4,7 @@ import { useAtom } from "jotai";
 import { FC } from "react";
 import { IoOptions } from "react-icons/io5";
 import { globalScope } from "utils/constants";
+import useTranslation from "utils/hooks/useTranslation";
 import { TipType } from "utils/typings";
 import { Container, Header } from "./styles";
 
@@ -12,6 +13,7 @@ type TipOptionsCardProps = {};
 const TipOptionsCard: FC<TipOptionsCardProps> = (props) => {
   const {} = props;
   const [tipType, setTipType] = useAtom(tipTypeAtom, globalScope);
+  const { pages } = useTranslation();
 
   const handleClick = (nextTipType: TipType) => {
     setTipType(nextTipType);
@@ -22,24 +24,24 @@ const TipOptionsCard: FC<TipOptionsCardProps> = (props) => {
       header={
         <Header>
           <IoOptions className="icon" />
-          Tip Options
+          {pages.fees.tipOptions}
         </Header>
       }
       open
     >
       <Container>
         <Checkbox
-          label="Before Tax (%)"
+          label={pages.fees.beforeTax}
           checked={tipType === "before"}
           onChange={() => handleClick("before")}
         />
         <Checkbox
-          label="After Tax (%)"
+          label={pages.fees.afterTax}
           checked={tipType === "after"}
           onChange={() => handleClick("after")}
         />
         <Checkbox
-          label="Fixed"
+          label={pages.fees.fixed}
           checked={tipType === "fixed"}
           onChange={() => handleClick("fixed")}
         />

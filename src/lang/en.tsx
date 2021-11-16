@@ -66,6 +66,10 @@ export const en: TranslationLibrary = {
       title: "Fees",
       tax: "Tax",
       tip: "Tip",
+      tipOptions: "Tip Options",
+      beforeTax: "Before Tax (%)",
+      afterTax: "After Tax (%)",
+      fixed: "Fixed ($)",
     },
   },
 };
