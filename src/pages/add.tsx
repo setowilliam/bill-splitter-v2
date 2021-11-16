@@ -1,6 +1,6 @@
 import { Title } from "@page-components";
 import { AddItemForm, AddPersonForm } from "@page-components/add";
-import { AnimateSharedLayout } from "framer-motion";
+import { LayoutGroup } from "framer-motion";
 import { Provider } from "jotai";
 import { NextPage } from "next";
 import useTranslation from "utils/hooks/useTranslation";
@@ -10,13 +10,13 @@ const Add: NextPage = () => {
 
   return (
     <div className="full-page">
-      <AnimateSharedLayout>
+      <LayoutGroup>
         <Title layout>{pages.add.title}</Title>
         <Provider>
           <AddPersonForm />
           <AddItemForm />
         </Provider>
-      </AnimateSharedLayout>
+      </LayoutGroup>
     </div>
   );
 };

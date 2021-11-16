@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { NextPage } from "next";
 import { useAtom } from "jotai";
-import { AnimateSharedLayout, motion } from "framer-motion";
+import { LayoutGroup, motion } from "framer-motion";
 import { useRouter } from "next/dist/client/router";
 
 import { itemsAtom, peopleAtom } from "@atoms";
@@ -27,14 +27,14 @@ const Results: NextPage = () => {
 
   return (
     <div className="full-page">
-      <AnimateSharedLayout>
+      <LayoutGroup>
         <Title layout>{pages.results.title}</Title>
         {Object.values(results).map((result) => {
           return <ResultCard key={result.personId} result={result} />;
         })}
         <motion.hr layout />
         <TotalCard items={items} />
-      </AnimateSharedLayout>
+      </LayoutGroup>
     </div>
   );
 };

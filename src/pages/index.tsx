@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { useAtom } from "jotai";
 
 import { itemsAtom, peopleAtom } from "@atoms";
@@ -19,46 +19,50 @@ const Home: NextPage = () => {
   const showWelcome = !(items.length || people.length);
 
   return (
-    <div className="full-page">
-      <AnimateSharedLayout>
-        <AnimatePresence>{showWelcome && <Welcome />}</AnimatePresence>
-        <AnimatePresence>
-          {Boolean(people.length) && (
-            <Title
-              layout
-              variants={fadeVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-            >
-              <BsPeopleFill className="icon" />
-              {pages.home.people.title}
-            </Title>
-          )}
-          {people.map((person, index) => (
-            <PersonCard key={person.personId} person={person} index={index} />
-          ))}
-        </AnimatePresence>
+    <motion.div className="full-page">
+      <AnimatePresence>{showWelcome && <Welcome />}</AnimatePresence>
+      <LayoutGroup>
+        <LayoutGroup>
+          <AnimatePresence>
+            {Boolean(people.length) && (
+              <Title
+                layout
+                variants={fadeVariants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+              >
+                <BsPeopleFill className="icon" />
+                {pages.home.people.title}
+              </Title>
+            )}
+            {people.map((person, index) => (
+              <PersonCard key={person.personId} person={person} index={index} />
+            ))}
+          </AnimatePresence>
+        </LayoutGroup>
 
-        <AnimatePresence>
-          {Boolean(items.length) && (
-            <Title
-              layout
-              variants={fadeVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-            >
-              <MdFastfood className="icon" />
-              {pages.home.items.title}
-            </Title>
-          )}
-          {items.map((item, index) => (
-            <ItemCard key={item.itemId} item={item} index={index} />
-          ))}
-        </AnimatePresence>
-      </AnimateSharedLayout>
-    </div>
+        <LayoutGroup>
+          <AnimatePresence>
+            {Boolean(items.length) && (
+              <Title
+                layout
+                variants={fadeVariants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+              >
+                <MdFastfood className="icon" />
+                {pages.home.items.title}
+              </Title>
+            )}
+            {items.map((item, index) => (
+              <ItemCard key={item.itemId} item={item} index={index} />
+            ))}
+          </AnimatePresence>
+        </LayoutGroup>
+      </LayoutGroup>
+    </motion.div>
   );
 };
 
