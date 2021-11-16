@@ -30,21 +30,23 @@ const Fees: NextPage = () => {
             label={pages.fees.tax}
             type="number"
             inputMode="decimal"
-            defaultValue={tax}
+            defaultValue={tax || ""}
             leadingIcon="%"
             onChange={(event) => setTax(parseFloat(event.currentTarget.value))}
             width="2rem"
+            setValue={(value) => setTax(parseFloat(value))}
           />
           <Input
             label={pages.fees.tip}
             type="number"
             inputMode="decimal"
-            defaultValue={tip}
+            defaultValue={tip || ""}
             leadingIcon={
               tipType === "fixed" ? (locale === "en" ? "$" : "￥") : "%"
             }
             onChange={(event) => setTip(parseFloat(event.currentTarget.value))}
             width="5rem"
+            setValue={(value) => setTip(parseFloat(value))}
           />
         </FeesForm>
         <TipOptionsCard />

@@ -31,7 +31,7 @@ type InputProps = Omit<HTMLProps<HTMLInputElement>, "ref" | "as"> & {
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const { leadingIcon, label, setValue, width, ...rest } = props;
   const [hasValue, setHasValue] = useState(
-    Boolean(rest.value || typeof rest.defaultValue === "number")
+    Boolean(rest.value || rest.defaultValue)
   );
 
   const [inputFocus, setInputFocus] = useAtom(inputAtom);
