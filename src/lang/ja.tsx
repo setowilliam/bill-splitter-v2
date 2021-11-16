@@ -39,6 +39,11 @@ export const ja: TranslationLibrary = {
         priceLogo: "￥",
       },
       add: "追加する",
+      addedMessage: (name) => (
+        <span>
+          <b>{name}</b>が追加しました！
+        </span>
+      ),
     },
   },
 };

@@ -38,6 +38,11 @@ export const en: TranslationLibrary = {
         priceLogo: "$",
       },
       add: "Add",
+      addedMessage: (name) => (
+        <span>
+          <b>{name}</b> added!
+        </span>
+      ),
     },
   },
 };

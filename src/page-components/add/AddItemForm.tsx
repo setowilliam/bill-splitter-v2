@@ -26,7 +26,7 @@ const AddItemForm: FC<AddItemFormProps> = (props) => {
     useForm<Pick<ItemType, "item" | "price">>();
   const [theme] = useAtom(themeAtom, globalScope);
   const notify = (item: string) =>
-    toast(`${item} added!`, {
+    toast(pages.add.addedMessage(item), {
       type: "success",
       theme,
       pauseOnFocusLoss: false,

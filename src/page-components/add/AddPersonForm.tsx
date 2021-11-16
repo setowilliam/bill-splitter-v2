@@ -25,7 +25,7 @@ const AddPersonForm: FC<AddPersonFormProps> = (props) => {
     useForm<{ person: string }>();
   const [theme] = useAtom(themeAtom, globalScope);
   const notify = (person: string) =>
-    toast(`${person} added!`, {
+    toast(pages.add.addedMessage(person), {
       type: "success",
       theme,
       pauseOnFocusLoss: false,
