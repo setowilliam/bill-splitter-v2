@@ -7,6 +7,7 @@ import { taxAtom, tipAtom } from "@atoms";
 import { globalScope } from "utils/constants";
 import { formatMoney } from "utils/functions";
 import { LineContainer } from "./styles";
+import { useRouter } from "next/dist/client/router";
 
 type BodyProps = { total: number };
 
@@ -14,12 +15,13 @@ const Body: FC<BodyProps> = (props) => {
   const { total } = props;
   const [tax] = useAtom(taxAtom, globalScope);
   const [tip] = useAtom(tipAtom, globalScope);
+  const { locale } = useRouter();
 
   return (
     <>
       <LineContainer layout>
         <span>Subtotal</span>
-        <span>{formatMoney(total)}</span>
+        <span>{formatMoney(total, locale)}</span>
       </LineContainer>
       <AnimatePresence>
         {Boolean(tax) && (
@@ -31,7 +33,7 @@ const Body: FC<BodyProps> = (props) => {
             exit={{ opacity: 0 }}
           >
             <span>Tax</span>
-            <span>{formatMoney((total * (tax || 0)) / 100)}</span>
+            <span>{formatMoney((total * (tax || 0)) / 100, locale)}</span>
           </LineContainer>
         )}
       </AnimatePresence>
@@ -45,7 +47,7 @@ const Body: FC<BodyProps> = (props) => {
             exit={{ opacity: 0 }}
           >
             <span>Tip</span>
-            <span>{formatMoney((total * (tip || 0)) / 100)}</span>
+            <span>{formatMoney((total * (tip || 0)) / 100, locale)}</span>
           </LineContainer>
         )}
       </AnimatePresence>
