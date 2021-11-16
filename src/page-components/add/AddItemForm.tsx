@@ -13,6 +13,7 @@ import AddForm from "./AddForm";
 import { Slide, toast } from "react-toastify";
 import { addAtom } from "./utils";
 import { AnimatePresence } from "framer-motion";
+import useTranslation from "utils/hooks/useTranslation";
 
 type AddItemFormProps = {
   onSubmit?: () => void;
@@ -33,6 +34,7 @@ const AddItemForm: FC<AddItemFormProps> = (props) => {
       autoClose: 3000,
       hideProgressBar: true,
     });
+  const { pages } = useTranslation();
 
   const item = watch("item");
   const price = watch("price");
@@ -53,7 +55,7 @@ const AddItemForm: FC<AddItemFormProps> = (props) => {
       header={
         <span>
           <MdFastfood className="icon" />
-          New Item
+          {pages.add.newItem.title}
         </span>
       }
       onSubmit={handleSubmit(onSubmit)}
@@ -63,7 +65,7 @@ const AddItemForm: FC<AddItemFormProps> = (props) => {
     >
       <Input
         {...register("item")}
-        label="Item"
+        label={pages.add.newItem.item}
         leadingIcon={<MdFastfood />}
         value={item}
         setValue={(value) => setValue("item", value)}
@@ -71,8 +73,8 @@ const AddItemForm: FC<AddItemFormProps> = (props) => {
       />
       <Input
         {...register("price", { valueAsNumber: true })}
-        label="Price"
-        leadingIcon="$"
+        label={pages.add.newItem.price}
+        leadingIcon={pages.add.newItem.priceLogo}
         type="number"
         step=".01"
         inputMode="decimal"

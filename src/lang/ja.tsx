@@ -26,5 +26,18 @@ export const ja: TranslationLibrary = {
         ),
       },
     },
+    add: {
+      title: "人／アイテムを追加する",
+      newPerson: {
+        title: "新しい人",
+        name: "名前",
+      },
+      newItem: {
+        title: "新しいアイテム",
+        item: "アイテム",
+        price: "値段",
+        priceLogo: "￥",
+      },
+    },
   },
 };

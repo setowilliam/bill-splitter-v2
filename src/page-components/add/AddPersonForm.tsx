@@ -12,6 +12,7 @@ import AddForm from "./AddForm";
 import { Slide, toast } from "react-toastify";
 import { addAtom } from "./utils";
 import { AnimatePresence } from "framer-motion";
+import useTranslation from "utils/hooks/useTranslation";
 
 type AddPersonFormProps = {
   onSubmit?: () => void;
@@ -32,6 +33,7 @@ const AddPersonForm: FC<AddPersonFormProps> = (props) => {
       autoClose: 3000,
       hideProgressBar: true,
     });
+  const { pages } = useTranslation();
 
   const name = watch("person");
 
@@ -52,7 +54,7 @@ const AddPersonForm: FC<AddPersonFormProps> = (props) => {
       header={
         <span>
           <IoPersonCircleSharp className="icon" />
-          New Person
+          {pages.add.newPerson.title}
         </span>
       }
       onSubmit={handleSubmit(onSubmit)}
@@ -62,7 +64,7 @@ const AddPersonForm: FC<AddPersonFormProps> = (props) => {
     >
       <Input
         {...register("person")}
-        label="Name"
+        label={pages.add.newPerson.name}
         leadingIcon={<IoPersonCircleSharp />}
         value={name}
         setValue={(value) => setValue("person", value)}

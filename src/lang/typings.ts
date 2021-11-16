@@ -21,5 +21,18 @@ export type TranslationLibrary = {
         description: ReactNode;
       };
     };
+    add: {
+      title: string;
+      newPerson: {
+        title: string;
+        name: string;
+      };
+      newItem: {
+        title: string;
+        item: string;
+        price: string;
+        priceLogo: ReactNode;
+      };
+    };
   };
 };

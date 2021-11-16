@@ -25,5 +25,18 @@ export const en: TranslationLibrary = {
         ),
       },
     },
+    add: {
+      title: "Add People/Items",
+      newPerson: {
+        title: "New Person",
+        name: "Name",
+      },
+      newItem: {
+        title: "New Item",
+        item: "Item",
+        price: "Price",
+        priceLogo: "$",
+      },
+    },
   },
 };
