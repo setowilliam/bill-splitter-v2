@@ -29,7 +29,7 @@ type InputProps = Omit<HTMLProps<HTMLInputElement>, "ref" | "as"> & {
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const { leadingIcon, label, setValue, ...rest } = props;
+  const { leadingIcon, label, setValue, width, ...rest } = props;
   const [hasValue, setHasValue] = useState(Boolean(rest.value));
 
   const [inputFocus, setInputFocus] = useAtom(inputAtom);
@@ -94,6 +94,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
+          $width={width}
         />
         <CloseButton
           variant="borderless"

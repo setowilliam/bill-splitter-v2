@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export const FeesFormContainer = styled(motion.div)`
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: 1rem;
   /* align-items: center; */
-  justify-items: center;
+  /* justify-items: center; */
 `;
