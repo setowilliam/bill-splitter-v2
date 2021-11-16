@@ -62,5 +62,10 @@ export const en: TranslationLibrary = {
       tax: "Tax",
       tip: "Tip",
     },
+    fees: {
+      title: "Fees",
+      tax: "Tax",
+      tip: "Tip",
+    },
   },
 };

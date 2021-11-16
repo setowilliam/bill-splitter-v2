@@ -63,5 +63,10 @@ export const ja: TranslationLibrary = {
       tax: "税金",
       tip: "チップ",
     },
+    fees: {
+      title: "料金",
+      tax: "税金",
+      tip: "チップ",
+    },
   },
 };

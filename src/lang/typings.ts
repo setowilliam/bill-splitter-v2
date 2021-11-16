@@ -54,5 +54,10 @@ export type TranslationLibrary = {
       tax: string;
       tip: string;
     };
+    fees: {
+      title: string;
+      tax: string;
+      tip: string;
+    };
   };
 };
