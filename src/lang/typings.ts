@@ -47,5 +47,12 @@ export type TranslationLibrary = {
       add: string;
       addedMessage: (name: string) => ReactNode;
     };
+    results: {
+      title: string;
+      total: string;
+      subtotal: string;
+      tax: string;
+      tip: string;
+    };
   };
 };

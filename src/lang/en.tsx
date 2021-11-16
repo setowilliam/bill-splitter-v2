@@ -55,5 +55,12 @@ export const en: TranslationLibrary = {
         </span>
       ),
     },
+    results: {
+      title: "Results",
+      total: "Total",
+      subtotal: "Subtotal",
+      tax: "Tax",
+      tip: "Tip",
+    },
   },
 };

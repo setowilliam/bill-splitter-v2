@@ -7,6 +7,7 @@ import { globalScope } from "utils/constants";
 import { formatMoney, includeTaxTip } from "utils/functions";
 import { LineContainer } from "./styles";
 import { useRouter } from "next/dist/client/router";
+import useTranslation from "utils/hooks/useTranslation";
 
 type HeaderProps = {
   total: number;
@@ -17,10 +18,11 @@ const Header: FC<HeaderProps> = (props) => {
   const [tax] = useAtom(taxAtom, globalScope);
   const [tip] = useAtom(tipAtom, globalScope);
   const { locale } = useRouter();
+  const { pages } = useTranslation();
 
   return (
     <LineContainer>
-      <h1>Total</h1>
+      <h1>{pages.results.total}</h1>
       <h1>{formatMoney(includeTaxTip(total, tax, tip), locale)}</h1>
     </LineContainer>
   );

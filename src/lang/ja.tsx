@@ -52,9 +52,16 @@ export const ja: TranslationLibrary = {
       add: "追加する",
       addedMessage: (name) => (
         <span>
-          <b>{name}</b>が追加しました！
+          <b>{name}</b>が追加されました！
         </span>
       ),
+    },
+    results: {
+      title: "結果",
+      total: "全額",
+      subtotal: "小計",
+      tax: "税金",
+      tip: "チップ",
     },
   },
 };
