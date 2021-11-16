@@ -2,7 +2,7 @@ import { TranslationLibrary } from "./typings";
 
 export const ja: TranslationLibrary = {
   global: {
-    title: "ビル・スプリッタ",
+    title: "ビル・スプリッター",
   },
   footer: {
     add: "追加する",
@@ -21,7 +21,7 @@ export const ja: TranslationLibrary = {
         description: (
           <p>
             <b>追加する</b>
-            をクリックして、新しいアイテムまたは人を追加することから始めます。
+            を押して、新しいアイテムまたは人を追加することから始めます。
           </p>
         ),
       },
