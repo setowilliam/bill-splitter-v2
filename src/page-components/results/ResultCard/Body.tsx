@@ -13,6 +13,7 @@ type BodyProps = {
   total: number;
 };
 
+
 const Body: FC<BodyProps> = (props) => {
   const { resultItems, total } = props;
   const [tax] = useAtom(taxAtom, globalScope);
