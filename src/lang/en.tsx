@@ -37,6 +37,7 @@ export const en: TranslationLibrary = {
         price: "Price",
         priceLogo: "$",
       },
+      add: "Add",
     },
   },
 };

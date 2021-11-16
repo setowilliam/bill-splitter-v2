@@ -8,6 +8,7 @@ import { useAtom } from "jotai";
 import { addAtom } from "../utils";
 import { FaChevronDown } from "react-icons/fa";
 import { motion } from "framer-motion";
+import useTranslation from "utils/hooks/useTranslation";
 
 type AddFormProps = {
   disabled?: boolean;
@@ -19,6 +20,7 @@ type AddFormProps = {
 
 const AddForm: FC<AddFormProps> = (props) => {
   const { disabled, onSubmit, header, children, open, name } = props;
+  const { pages } = useTranslation();
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     if (disabled) {
@@ -61,7 +63,7 @@ const AddForm: FC<AddFormProps> = (props) => {
         exit={{ opacity: 0 }}
       >
         {children}
-        <StyledButton disabled={disabled}>Add</StyledButton>
+        <StyledButton disabled={disabled}>{pages.add.add}</StyledButton>
       </StyledForm>
     </Card>
   );

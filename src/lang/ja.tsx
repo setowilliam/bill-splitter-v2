@@ -38,6 +38,7 @@ export const ja: TranslationLibrary = {
         price: "値段",
         priceLogo: "￥",
       },
+      add: "追加する",
     },
   },
 };

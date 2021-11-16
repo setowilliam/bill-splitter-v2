@@ -33,6 +33,7 @@ export type TranslationLibrary = {
         price: string;
         priceLogo: ReactNode;
       };
+      add: string;
     };
   };
 };
