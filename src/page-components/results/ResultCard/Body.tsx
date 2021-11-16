@@ -6,6 +6,7 @@ import { taxAtom, tipAtom } from "@atoms";
 import { globalScope } from "utils/constants";
 import { formatMoney, includeTaxTip, roundNumber } from "utils/functions";
 import { ResultItemType } from "utils/typings";
+import { useRouter } from "next/dist/client/router";
 
 type BodyProps = {
   resultItems: Record<string, ResultItemType>;
@@ -16,6 +17,7 @@ const Body: FC<BodyProps> = (props) => {
   const { resultItems, total } = props;
   const [tax] = useAtom(taxAtom, globalScope);
   const [tip] = useAtom(tipAtom, globalScope);
+  const { locale } = useRouter();
 
   return (
     <motion.div layout>
@@ -28,7 +30,8 @@ const Body: FC<BodyProps> = (props) => {
           );
 
           const formattedPrice = formatMoney(
-            includeTaxTip(resultItem.splitPrice, tax, tip)
+            includeTaxTip(resultItem.splitPrice, tax, tip),
+            locale
           );
 
           return (
