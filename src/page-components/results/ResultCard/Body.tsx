@@ -7,7 +7,6 @@ import { globalScope } from "utils/constants";
 import { formatMoney, getFees, roundNumber } from "utils/functions";
 import { ResultItemType } from "utils/typings";
 import { useRouter } from "next/dist/client/router";
-import { Cell, Pie, PieChart, PieLabel, ResponsiveContainer } from "recharts";
 
 type BodyProps = {
   resultItems: Record<string, ResultItemType>;
@@ -15,29 +14,6 @@ type BodyProps = {
 };
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
-const RADIAN = Math.PI / 180;
-
-const renderCustomizedLabel: PieLabel = (props) => {
-  const { cx, cy, midAngle, innerRadius, outerRadius, percent, name } = props;
-
-  console.log(props);
-
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-  const x = cx + outerRadius * 1.5 * Math.cos(-midAngle * RADIAN);
-  const y = cy + outerRadius * 1.5 * Math.sin(-midAngle * RADIAN);
-
-  return (
-    <text
-      {...props}
-      x={x}
-      y={y}
-      textAnchor={x > cx ? "start" : "end"}
-      dominantBaseline="central"
-    >
-      {`${name} (${(percent * 100).toFixed(0)}%)`}
-    </text>
-  );
-};
 
 const Body: FC<BodyProps> = (props) => {
   const { resultItems, total } = props;
@@ -69,28 +45,6 @@ const Body: FC<BodyProps> = (props) => {
       layout
       style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}
     >
-      <ResponsiveContainer height={100}>
-        <PieChart>
-          <Pie
-            isAnimationActive={false}
-            data={pieData}
-            dataKey="value"
-            nameKey="name"
-            cx="50%"
-            cy="50%"
-            outerRadius={50}
-            fill="#8884d8"
-            // label={(data) => )}
-          >
-            {pieData.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
-        </PieChart>
-      </ResponsiveContainer>
       {Object.values(resultItems)
         .sort((a, b) => b.splitPrice - a.splitPrice)
         .map((resultItem, index) => {
