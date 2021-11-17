@@ -22,24 +22,6 @@ const Body: FC<BodyProps> = (props) => {
   const [tipType] = useAtom(tipTypeAtom, globalScope);
   const { locale } = useRouter();
 
-  const pieData = Object.values(resultItems)
-    .sort((a, b) => b.splitPrice - a.splitPrice)
-    .map((resultItem) => {
-      const percentage = roundNumber((resultItem.splitPrice / total) * 100, 1);
-
-      const fees = getFees(resultItem.splitPrice, tax, tip, tipType);
-
-      const formattedPrice = formatMoney(
-        resultItem.splitPrice + fees.tax + fees.tip,
-        locale
-      );
-
-      return {
-        name: resultItem.item,
-        value: resultItem.splitPrice + fees.tax + fees.tip,
-      };
-    });
-
   return (
     <motion.div
       layout
