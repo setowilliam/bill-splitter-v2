@@ -40,7 +40,6 @@ const ResultCard: FC<ResultCardProps> = (props) => {
       });
 
     return {
-      labels: data.map(({ name }) => name),
       datasets: [
         {
           data: data.map(({ value }) => value),
@@ -52,7 +51,7 @@ const ResultCard: FC<ResultCardProps> = (props) => {
 
   return (
     <StyledCard header={<Header name={result.name} total={result.total} />}>
-      <Pie data={pieData} />
+      <Pie data={pieData} height={150} />
       <Body resultItems={result.resultItems} total={result.total} />
     </StyledCard>
   );
