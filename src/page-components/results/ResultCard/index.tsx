@@ -51,7 +51,12 @@ const ResultCard: FC<ResultCardProps> = (props) => {
 
   return (
     <StyledCard header={<Header name={result.name} total={result.total} />}>
-      <Pie data={pieData} height={150} />
+      <div style={{ width: "100%", height: "8rem", marginBottom: "1rem" }}>
+        <Pie
+          data={pieData}
+          options={{ maintainAspectRatio: false, responsive: true }}
+        />
+      </div>
       <Body resultItems={result.resultItems} total={result.total} />
     </StyledCard>
   );
