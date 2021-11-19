@@ -40,11 +40,11 @@ const TipOptionsCard: FC<TipOptionsCardProps> = (props) => {
           checked={tipType === "after"}
           onChange={() => handleClick("after")}
         />
-        <Checkbox
+        {/* <Checkbox
           label={pages.fees.fixed}
           checked={tipType === "fixed"}
           onChange={() => handleClick("fixed")}
-        />
+        /> */}
       </Container>
     </Card>
   );
